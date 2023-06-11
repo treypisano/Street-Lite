@@ -18,9 +18,11 @@ Street-Lite is an application that informs users about public events and Open St
 - Stability and reliabilty of NYC Open Data API, limited scope of dataset
 - Recieving data from NYC API and parsing it to the Google Maps API
 
-![image](https://github.com/treypisano/Street-Lite/assets/126501514/c9f59fa4-14e7-40e7-bb5d-a293fca241e0)
 ![image](https://github.com/treypisano/Street-Lite/assets/126501514/847d4c89-ea7a-4d0a-82d1-a0583b117387)
+
 ![image](https://github.com/treypisano/Street-Lite/assets/126501514/c381f3f5-b4dd-47ae-96e4-1343fadffb22)
+
+![image](https://github.com/treypisano/Street-Lite/assets/126501514/c9f59fa4-14e7-40e7-bb5d-a293fca241e0)
 
 
 ### Group members
