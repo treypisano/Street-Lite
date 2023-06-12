@@ -1,15 +1,15 @@
 import React from "react";
 import NavigationBar from "../Navigation/NavigationBar";
+import './homepage.css';
 
 function Homepage() {
     return (
-        <div>
-            <h1>Street_Lite</h1>
+        <div className="homepage">
             <NavigationBar />
+            <h1>Welcome to Street_Lite</h1>
             <div>
                 Empty Divs
             </div>
-            {/* <footer>Footer</footer> */}
         </div>
     )
 }

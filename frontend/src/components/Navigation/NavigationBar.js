@@ -4,7 +4,7 @@ import './navigation.css';
 
 function NavigationBar () {
     return (
-        <div>
+        <div className="navbar">
             <div className="logo">
                 <img src={logogreen} className="logo"></img>              
             </div>
