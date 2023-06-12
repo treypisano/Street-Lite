@@ -8,16 +8,17 @@ h1 {
 }
 
 .carousel {
-    /* max-width: 800px;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center; */
+    /* max-width: 800px; */
+    /* height: auto; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
     width: 80%;
     margin-left: auto;
     margin-right: auto;
 
 }
+
 
 .carousel-image {
     width: 100%;
@@ -25,16 +26,16 @@ h1 {
     object-fit: contain;
 }
 
-/* homepage.css */
+
 .back-arrow,
 .next-arrow {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  width: 60px;
   height: 40px;
-  background-color: #000;
-  color: #fff;
+  width: 60px;
+  background-color: #aca7a7;
+  color: #000000;
+  border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,11 +44,15 @@ h1 {
 }
 
 .back-arrow {
-  left: -30px;
-  top: 250px;
+  left: 0px;
+  margin-top: 40px;
+  /* top: 250px; */
+  font-size: 30px;
 }
 
 .next-arrow {
-  right: -30px;
-  top: 250px;
+  right: 0px;
+  margin-top: 40px;
+  /* top: 250px; */
+  font-size: 30px;
 }

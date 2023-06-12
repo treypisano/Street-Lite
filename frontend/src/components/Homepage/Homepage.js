@@ -13,7 +13,7 @@ function Homepage() {
     const BackArrow = (props) => {
         return (
             <div className="back-arrow" onClick={props.onClick}>
-                Previous
+                {"<"}
             </div>
         )
       }
@@ -21,7 +21,7 @@ function Homepage() {
       const NextArrow = (props) => {
         return (
             <div className="next-arrow" onClick={props.onClick}>
-                Next
+                {">"}
             </div>
         )
       }
@@ -33,7 +33,8 @@ function Homepage() {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 4000,
+        autoplaySpeed: 5000,
+        stopOnHover: true,
         prevArrow: true,
         nextArrow: true,
         prevArrow: <BackArrow />,
@@ -52,7 +53,8 @@ function Homepage() {
                     <div>
                         <img src={logoyellow} className="carousel-image" alt="Yellow Logo" />
                     </div>
-                </Slider>
+                </Slider>  
+                
             </div>
         </div>
     )
