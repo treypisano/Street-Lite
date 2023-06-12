@@ -1,6 +1,5 @@
 import React, {useEffect} from "react";
 import Slider from "react-slick";
-import NavigationBar from "../Navigation/NavigationBar";
 import logogreen from "../../images/street_lite_logo_green.png";
 import logoyellow from "../../images/street_lite_logo_yellow.png";
 import './homepage.css';
@@ -19,7 +18,7 @@ function Homepage() {
     const BackArrow = (props) => {
         return (
             <div className="back-arrow" onClick={props.onClick}>
-                Previous
+                {"<"}
             </div>
         )
       }
@@ -27,7 +26,7 @@ function Homepage() {
       const NextArrow = (props) => {
         return (
             <div className="next-arrow" onClick={props.onClick}>
-                Next
+                {">"}
             </div>
         )
       }
@@ -39,7 +38,8 @@ function Homepage() {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 4000,
+        autoplaySpeed: 5000,
+        stopOnHover: true,
         prevArrow: true,
         nextArrow: true,
         prevArrow: <BackArrow />,
@@ -48,7 +48,6 @@ function Homepage() {
     
     return (
         <div className="homepage">
-            <NavigationBar />
             <h1>Welcome to Street_Lite</h1>
             <div className="carousel">
                 <Slider {...sliderSettings}>
@@ -58,7 +57,8 @@ function Homepage() {
                     <div>
                         <img src={logoyellow} className="carousel-image" alt="Yellow Logo" />
                     </div>
-                </Slider>
+                </Slider>  
+                
             </div>
         </div>
     )

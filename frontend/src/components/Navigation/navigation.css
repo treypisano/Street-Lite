@@ -1,6 +1,9 @@
 .navbar {
     display: flex;
     flex-direction: row;
+    position: sticky;
+    top: 0px;
+    padding: 1%;
 }
 
 .logo {
@@ -8,5 +11,4 @@
     height: auto;
     display: flex;
     align-items: center;
-    /* margin-left: 20px; */
   }

@@ -19,8 +19,13 @@ function App() {
 
   return loaded && (
     <div>
-      <Homepage />
-      <SignupForm />
+
+      <NavigationBar />
+      <Switch>
+        <Route path="/" exact>
+              <Homepage />
+        </Route>
+      </Switch>
       <Footer />
     </div>
   );
