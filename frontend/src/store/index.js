@@ -1,11 +1,12 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import openStreetReducer from './openstreet';
-import sessionReducer from './session';
+import sessionReducer, { sessionErrorsReducer } from './session';
 
 const rootReducer = combineReducers({
   openStreet: openStreetReducer,
-  session: sessionReducer
+  session: sessionReducer,
+  errors: sessionErrorsReducer
 });
 
 let enhancer;
