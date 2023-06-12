@@ -1,3 +1,14 @@
+function getCookie(cookieName) {
+  debugger
+  const cookies = document.cookie.split(';');
+  for (let cookie of cookies) {
+      const [name, value] = cookie.split('=');
+      if (name.trim() === cookieName) return value;
+  }
+  return null;
+}
+
+
 async function jwtFetch(url, options = {}) {
     // Set options.method to 'GET' if there is no method.
     options.method = options.method || "GET";
@@ -15,7 +26,7 @@ async function jwtFetch(url, options = {}) {
         options.headers["Content-Type"] || "application/json";
         options.headers["CSRF-Token"] = getCookie("CSRF-TOKEN");
     }
-  
+    debugger
     // Call fetch with the url and the updated options hash.
     const res = await fetch(url, options);
   
@@ -26,15 +37,6 @@ async function jwtFetch(url, options = {}) {
     // If the response status code is under 400, then return the response to the
     // next promise chain.
     return res;
-  }
-  
-  function getCookie(cookieName) {
-    const cookies = document.cookie.split(';');
-    for (let cookie of cookies) {
-        const [name, value] = cookie.split('=');
-        if (name.trim() === cookieName) return value;
-    }
-    return null;
-  }
+}
 
   export default jwtFetch;
