@@ -8,6 +8,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchOpenStreets } from "../../store/openstreet";
 import { useLoggedIn } from "../../util/ApiUtil";
+import SignupForm from "../SessionForms/SignupForm"
+import LoginForm from "../SessionForms/LoginForm";
 import LogoutButton from "../SessionForms/LogoutButton";
 
 function Homepage() {
@@ -52,7 +54,11 @@ function Homepage() {
         <div className="homepage">
             <h1>Welcome to Street_Lite</h1>
             {
-            useLoggedIn() && <LogoutButton />
+            useLoggedIn() ? <LogoutButton /> :
+            <>
+            <LoginForm />
+            <SignupForm />
+            </>
             }
             <div className="carousel">
                 <Slider {...sliderSettings}>

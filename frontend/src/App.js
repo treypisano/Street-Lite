@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import Homepage from "./components/Homepage/Homepage";
 import Footer from "../src/components/Footer/Footer";
-import SignupForm from "./components/SessionForms/SignupForm";
 import { getCurrentUser } from './store/session';
 import NavigationBar from './components/Navigation/NavigationBar'
 
@@ -24,7 +23,6 @@ function App() {
               <Homepage />
         </Route>
       </Switch>
-      <SignupForm />
       <Footer />
     </div>
   );
