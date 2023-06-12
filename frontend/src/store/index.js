@@ -1,8 +1,9 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import openStreetReducer from './openstreet';
 
 const rootReducer = combineReducers({
-  
+  openStreetReducer
 });
 
 let enhancer;
