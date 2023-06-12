@@ -1,6 +1,11 @@
+import React from "react";
+import Homepage from "./components/Homepage/Homepage";
+
 function App() {
   return (
-    <h1>Howdy from App</h1>
+    <div>
+      <Homepage />
+    </div>
   );
 }
 
