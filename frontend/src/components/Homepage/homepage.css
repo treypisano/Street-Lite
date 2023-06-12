@@ -6,3 +6,48 @@
 h1 {
    text-align: center;
 }
+
+.carousel {
+    /* max-width: 800px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center; */
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.carousel-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* homepage.css */
+.back-arrow,
+.next-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 40px;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.back-arrow {
+  left: -30px;
+  top: 250px;
+}
+
+.next-arrow {
+  right: -30px;
+  top: 250px;
+}
