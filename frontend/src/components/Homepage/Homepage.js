@@ -1,6 +1,5 @@
 import React from "react";
 import Slider from "react-slick";
-import NavigationBar from "../Navigation/NavigationBar";
 import logogreen from "../../images/street_lite_logo_green.png";
 import logoyellow from "../../images/street_lite_logo_yellow.png";
 import './homepage.css';
@@ -43,7 +42,6 @@ function Homepage() {
     
     return (
         <div className="homepage">
-            <NavigationBar />
             <h1>Welcome to Street_Lite</h1>
             <div className="carousel">
                 <Slider {...sliderSettings}>
