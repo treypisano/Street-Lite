@@ -1,3 +1,8 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+}
+
 .logo {
     max-width: 200px;
     height: auto;
