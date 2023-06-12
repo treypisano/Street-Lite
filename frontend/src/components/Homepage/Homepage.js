@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Slider from "react-slick";
 import NavigationBar from "../Navigation/NavigationBar";
 import logogreen from "../../images/street_lite_logo_green.png";
@@ -6,9 +6,15 @@ import logoyellow from "../../images/street_lite_logo_yellow.png";
 import './homepage.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { useDispatch, useSelector } from "react-redux";
+import { fetchOpenStreets } from "../../store/openstreet";
 
 function Homepage() {
+    const dispatch = useDispatch();
+    
+    useEffect(() => {
+        dispatch(fetchOpenStreets());
+    }, [dispatch]);
     
     const BackArrow = (props) => {
         return (
