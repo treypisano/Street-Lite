@@ -8,16 +8,17 @@ const EventListItem = ( {event} ) => {
 
 
     return (
-        <div className="event-list-item" key={event.id}>
-            {/* <Link to={`/listings/${listing.id}`}> */}
+        <div className="event-list-item" key={event._id}>
+            <Link to={`/events/${event._id}`}>
+                Event Show Page Link
                 {/* <div className='index-image-container'>
                     <img src={image} className="listing-pic" alt="" />
                     <img src={listing.photoUrls.length > 0 ? listing.photoUrls[0] : image } alt="" className='listing-pic' />
                 </div> */}
+            </Link>
                 <br></br>
                 <div className="event-dates">{event.dates}</div>
                 <div className='event-location'>Main Street:{event.location.mainStreet}</div>
-            {/* </Link> */}
         </div>
       )
     
