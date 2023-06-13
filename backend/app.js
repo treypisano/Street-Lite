@@ -9,7 +9,7 @@ const { isProduction } = require('./config/keys');
 require('./models/User');
 require('./config/passport');
 const passport = require('passport');
-
+const openStreetsRouter = require('./routes/api/openStreets')
 const usersRouter = require('./routes/api/users');
 const csrfRouter = require('./routes/api/csrf');
 
@@ -44,6 +44,7 @@ app.use(
 // Attach Express routers
 app.use('/api/users', usersRouter);
 app.use('/api/csrf', csrfRouter);
+app.use('/api/openStreets', openStreetsRouter)
 
 app.get(/^(?!\/?api).*/, (req, res) => {
   res.cookie('CSRF-TOKEN', req.csrfToken());
@@ -52,7 +53,9 @@ app.get(/^(?!\/?api).*/, (req, res) => {
   );
 });
 
+
 if (isProduction) {
+  // console.log("is production running!")
   const path = require('path');
   // Serve the frontend's index.html file at the root route
   app.get('/', (req, res) => {
@@ -95,5 +98,6 @@ app.use((err, req, res, next) => {
     })
 });
 
+// console.log(app.routes)
 
 module.exports = app;
