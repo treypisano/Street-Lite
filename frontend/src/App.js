@@ -1,15 +1,20 @@
 import React from "react";
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Switch, Route } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Switch, Route } from "react-router-dom";
 import Homepage from "./components/Homepage/Homepage";
 import Footer from "../src/components/Footer/Footer";
-import { getCurrentUser } from './store/session';
-import NavigationBar from './components/Navigation/NavigationBar';
+import { getCurrentUser } from "./store/session";
+import NavigationBar from "./components/Navigation/NavigationBar";
 import LoginForm from "./components/SessionForms/LoginForm";
 import SignupForm from "./components/SessionForms/SignupForm";
+
+import CreateEvent from "./components/Navigation/CreateEvent";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import EventIndexPage from "./components/Events/EventIndexPage";
 import EventShowPage from "./components/Events/EventShowPage";
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -17,7 +22,6 @@ function App() {
   useEffect(() => {
     dispatch(getCurrentUser()).then(() => setLoaded(true));
   }, [dispatch]);
-
 
   return loaded && (
     <div>
@@ -38,9 +42,13 @@ function App() {
         <Route path="/events/:eventId" exact>
           <EventShowPage />
         </Route>
+        <Route path="/createEvent" exact>
+          <CreateEvent />
+        </Route>
       </Switch>
       <Footer />
     </div>
+
   );
 }
 
