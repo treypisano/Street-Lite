@@ -1,4 +1,4 @@
-footer {
+.footer {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -8,4 +8,8 @@ footer {
     padding-bottom: 2%;
     color: black;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
 }
