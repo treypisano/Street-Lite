@@ -58,7 +58,7 @@ export const fetchOpenStreets = () => async (dispatch, getState) => {
   // const openStreets = await response.json();
   // saveOpenStreetsData(openStreets)
 
-  const response = await jwtFetch("api/openstreets/all", {
+  const response = await jwtFetch("/api/openstreets/all", {
     method: "POST",
   });
   const data = await response.json();
@@ -82,10 +82,12 @@ export const createEvent = (event) => async (dispatch) => {
 };
 
 export const fetchOpenStreet = (id) => async (dispatch, getState) => {
-    const response = await jwtFetch(`/api/openstreets/${id}`)
-    const data = response.json()
+    const response = await jwtFetch(`/api/openstreets/${id}`,{
+      method: 'POST'
+    })
+    const data = await response.json()
 
-    // dispatch()
+    dispatch(receiveEvent(data))
 }
 
 // Selector
@@ -97,7 +99,7 @@ export const getEvents = (state) => {
     }
 }
 
-const openStreetReducer = (state = {}, action) => {
+const openStreetReducer = (state = [], action) => {
   Object.freeze(state);
 
   switch (action.type) {
