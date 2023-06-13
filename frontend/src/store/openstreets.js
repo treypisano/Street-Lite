@@ -81,6 +81,15 @@ export const createEvent = (event) => async (dispatch) => {
   }
 };
 
+// Selector
+export const getEvents = (state) => {
+    if (state.openStreets) {
+        return Object.values(state.openStreets)
+    } else {
+        return []
+    }
+}
+
 const openStreetReducer = (state = {}, action) => {
   Object.freeze(state);
 

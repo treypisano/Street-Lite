@@ -12,6 +12,7 @@ import SignupForm from "../SessionForms/SignupForm"
 import LoginForm from "../SessionForms/LoginForm";
 import LogoutButton from "../SessionForms/LogoutButton";
 import LoginFormModal from "../SessionForms/LoginFormModal";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function Homepage() {
     const dispatch = useDispatch();
@@ -71,6 +72,11 @@ function Homepage() {
                     </div>
                 </Slider>  
                 
+            </div>
+            <div>
+                <Link to="/events" className="events-link">
+                See all Events
+                </Link>
             </div>
         </div>
     )
