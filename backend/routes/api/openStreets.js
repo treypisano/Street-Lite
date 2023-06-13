@@ -53,4 +53,11 @@ router.post('/all', async (req, res, next) => {
     res.send(allEvents)  
 })
 
+router.post('/:id', async (req, res, next) => {
+    const currentEvent = await Event.findById(req.params.id)
+    console.log(currentEvent)
+
+    res.send(currentEvent)
+})
+
 module.exports = router
