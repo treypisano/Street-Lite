@@ -1,15 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
-import configureStore from './store';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import configureStore from "./store";
+import { createEvent } from "./store/event";
 
 let store = configureStore({});
 
 if (process.env.NODE_ENV !== "production") {
   window.store = store;
+  window.createEvent = createEvent;
 }
 
 function Root() {
@@ -26,5 +28,5 @@ ReactDOM.render(
   <React.StrictMode>
     <Root />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
