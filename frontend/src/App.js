@@ -9,6 +9,7 @@ import NavigationBar from './components/Navigation/NavigationBar';
 import LoginForm from "./components/SessionForms/LoginForm";
 import SignupForm from "./components/SessionForms/SignupForm";
 import EventIndexPage from "./components/Events/EventIndexPage";
+import EventShowPage from "./components/Events/EventShowPage";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -23,16 +24,19 @@ function App() {
       <NavigationBar />
       <Switch>
         <Route path="/" exact>
-              <Homepage />
+          <Homepage />
         </Route>
         <Route path="/login" exact>
-              <LoginForm />
+          <LoginForm />
         </Route>
         <Route path="/signup" exact>
-              <SignupForm />
+          <SignupForm />
         </Route>
         <Route path="/events" exact>
-              <EventIndexPage />
+          <EventIndexPage />
+        </Route>
+        <Route path="/events/:eventId" exact>
+          <EventShowPage />
         </Route>
       </Switch>
       <Footer />
