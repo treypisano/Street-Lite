@@ -7,17 +7,24 @@ const EventShowPage = () => {
     const dispatch = useDispatch()
     const params = useParams()
     const currentEventId = params.eventId
-    const currentEvent = useSelector(state => state.openStreet)
+    const currentEvent = useSelector(state => state.openStreet[0])
+
+    console.log(currentEvent)
 
     useEffect(() => {
         dispatch(fetchOpenStreet(currentEventId));
     }, [dispatch]);
     
-    return (
-        <div className="event-show-page">
-            <h1>Event Show Page</h1>
-        </div>
-    )
+    if (currentEvent) {
+        return (
+            <div className="event-show-page">
+                <h1>Event Show Page</h1>
+                <p>{currentEvent.dates}</p>
+                <p>{currentEvent.location.mainStreet}</p>
+            </div>
+        )
+    }
+    
 }
 
 export default EventShowPage;
