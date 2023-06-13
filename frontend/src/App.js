@@ -8,6 +8,7 @@ import { getCurrentUser } from './store/session';
 import NavigationBar from './components/Navigation/NavigationBar';
 import LoginForm from "./components/SessionForms/LoginForm";
 import SignupForm from "./components/SessionForms/SignupForm";
+import EventIndexPage from "./components/Events/EventIndexPage";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -29,6 +30,9 @@ function App() {
         </Route>
         <Route path="/signup" exact>
               <SignupForm />
+        </Route>
+        <Route path="/events" exact>
+              <EventIndexPage />
         </Route>
       </Switch>
       <Footer />
