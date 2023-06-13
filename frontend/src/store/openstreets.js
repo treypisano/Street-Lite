@@ -42,12 +42,14 @@ function saveOpenStreetsData (openStreets) {
 }
 
 export const fetchOpenStreets = () => async (dispatch, getState) => {
-    const response = await fetch('https://data.cityofnewyork.us/resource/uiay-nctu.json');
-    const openStreets = await response.json();
     // Add fetch with POST request to make new event in controller
     // Make the route in the controller
 
     // If database hasnt been updated in a week, then save to database
+
+    
+    const response = await fetch('https://data.cityofnewyork.us/resource/uiay-nctu.json');
+    const openStreets = await response.json();
     saveOpenStreetsData(openStreets)
 
     dispatch(recieveOpenstreets(openStreets));
