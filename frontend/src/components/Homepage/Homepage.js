@@ -11,6 +11,7 @@ import { useLoggedIn } from "../../util/ApiUtil";
 import SignupForm from "../SessionForms/SignupForm"
 import LoginForm from "../SessionForms/LoginForm";
 import LogoutButton from "../SessionForms/LogoutButton";
+import LoginFormModal from "../SessionForms/LoginFormModal";
 
 function Homepage() {
     const dispatch = useDispatch();
@@ -53,13 +54,13 @@ function Homepage() {
     return (
         <div className="homepage">
             <h1>Welcome to Street_Lite</h1>
-            {
+            {/* {
             useLoggedIn() ? <LogoutButton /> :
             <>
             <LoginForm />
             <SignupForm />
             </>
-            }
+            } */}
             <div className="carousel">
                 <Slider {...sliderSettings}>
                     <div>
