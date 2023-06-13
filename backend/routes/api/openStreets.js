@@ -43,10 +43,14 @@ router.post('/' , async (req, res, next) => {
             }
         })
 
-        // console.log(newCurrentEvent)
-
         await newCurrentEvent.save()
     }
+})
+
+router.post('/all', async (req, res, next) => {
+    const allEvents = await Event.find()
+
+    res.send(allEvents)  
 })
 
 module.exports = router
