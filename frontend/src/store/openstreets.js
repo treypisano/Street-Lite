@@ -47,10 +47,9 @@ export const fetchOpenStreets = () => async (dispatch, getState) => {
 
     // If database hasnt been updated in a week, then save to database
 
-    
     const response = await fetch('https://data.cityofnewyork.us/resource/uiay-nctu.json');
     const openStreets = await response.json();
-    saveOpenStreetsData(openStreets)
+    // saveOpenStreetsData(openStreets)
 
     dispatch(recieveOpenstreets(openStreets));
     return openStreets;
