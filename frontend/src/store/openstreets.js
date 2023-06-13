@@ -3,7 +3,7 @@ import jwtFetch from "./jwt";
 const RECEIVE_OPENSTREET = "RECEIVE_OPENSTREET";
 const RECEIVE_OPENSTREETS = "RECIEVE_OPENSTREETS";
 const RECEIVE_EVENT = "RECEIVE_EVENT";
-const CLEAR_EVENTS = "CLEAR_EVENTS"
+const CLEAR_EVENTS = "CLEAR_EVENTS";
 
 export const receiveOpenstreet = (openStreet) => {
   return {
@@ -29,9 +29,9 @@ export const receiveEvent = (event) => {
 export const clearEvents = () => {
   return {
     type: CLEAR_EVENTS,
-    payload: "destroying events"
-  }
-}
+    payload: "destroying events",
+  };
+};
 
 function splitData(data) {
   const splitArray = [];
@@ -47,7 +47,7 @@ function splitData(data) {
 
 function saveOpenStreetsData(openStreets) {
   const splitUpData = splitData(openStreets);
-  console.log(splitUpData);
+  // console.log(splitUpData);
   splitUpData.forEach((chunk) => {
     jwtFetch("api/openstreets/", {
       method: "POST",
@@ -90,22 +90,22 @@ export const createEvent = (event) => async (dispatch) => {
 };
 
 export const fetchOpenStreet = (id) => async (dispatch, getState) => {
-    const response = await jwtFetch(`/api/openstreets/${id}`,{
-      method: 'POST'
-    })
-    const data = await response.json()
+  const response = await jwtFetch(`/api/openstreets/${id}`, {
+    method: "POST",
+  });
+  const data = await response.json();
 
-    dispatch(receiveEvent(data))
-}
+  dispatch(receiveEvent(data));
+};
 
 // Selector
 export const getEvents = (state) => {
-    if (state.openStreets) {
-        return Object.values(state.openStreets)
-    } else {
-        return []
-    }
-}
+  if (state.openStreets) {
+    return Object.values(state.openStreets);
+  } else {
+    return [];
+  }
+};
 
 const openStreetReducer = (state = [], action) => {
   Object.freeze(state);
