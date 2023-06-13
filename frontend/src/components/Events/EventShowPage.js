@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchOpenStreet } from "../../store/openstreets";
+import { clearEvents } from "../../store/openstreets";
 
 const EventShowPage = () => {
     const dispatch = useDispatch()
@@ -9,10 +10,9 @@ const EventShowPage = () => {
     const currentEventId = params.eventId
     const currentEvent = useSelector(state => state.openStreet[0])
 
-    console.log(currentEvent)
-
     useEffect(() => {
         dispatch(fetchOpenStreet(currentEventId));
+        dispatch(clearEvents());
     }, [dispatch]);
     
     if (currentEvent) {

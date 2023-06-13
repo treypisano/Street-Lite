@@ -3,6 +3,7 @@ import jwtFetch from "./jwt";
 const RECEIVE_OPENSTREET = "RECEIVE_OPENSTREET";
 const RECEIVE_OPENSTREETS = "RECIEVE_OPENSTREETS";
 const RECEIVE_EVENT = "RECEIVE_EVENT";
+const CLEAR_EVENTS = "CLEAR_EVENTS"
 
 export const receiveOpenstreet = (openStreet) => {
   return {
@@ -24,6 +25,13 @@ export const receiveEvent = (event) => {
     event,
   };
 };
+
+export const clearEvents = () => {
+  return {
+    type: CLEAR_EVENTS,
+    payload: "destroying events"
+  }
+}
 
 function splitData(data) {
   const splitArray = [];
@@ -107,6 +115,8 @@ const openStreetReducer = (state = [], action) => {
       return action.openStreets;
     case RECEIVE_EVENT:
       return state.concat(action.event);
+    case CLEAR_EVENTS:
+      return [];
     default:
       return state;
   }
