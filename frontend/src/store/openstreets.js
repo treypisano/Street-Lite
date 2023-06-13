@@ -1,3 +1,5 @@
+import jwtFetch from "./jwt";
+
 const RECIEVE_OPENSTREET = 'RECIEVE_OPENSTREET';
 const RECIEVE_OPENSTREETS = 'RECIEVE_OPENSTREETS';
 
@@ -15,10 +17,39 @@ export const recieveOpenstreets = openStreets => {
     };
 }
 
+function splitData(data) {
+    const splitArray = [];
+    let size = 100
+
+    for (let i = 0; i < data.length; i += 100) {
+        const chunk = data.slice(i, i + size);
+        splitArray.push(chunk);
+    }
+
+    return splitArray
+}
+
+function saveOpenStreetsData (openStreets) {
+    const splitUpData = splitData(openStreets)
+    console.log(splitUpData)
+    splitUpData.forEach((chunk) => {
+        jwtFetch('api/openstreets/', {
+            method: 'POST',
+            body: JSON.stringify(chunk) // Reducing size of object http request
+        })
+    })
+
+}
 
 export const fetchOpenStreets = () => async (dispatch, getState) => {
     const response = await fetch('https://data.cityofnewyork.us/resource/uiay-nctu.json');
     const openStreets = await response.json();
+    // Add fetch with POST request to make new event in controller
+    // Make the route in the controller
+
+    // If database hasnt been updated in a week, then save to database
+    saveOpenStreetsData(openStreets)
+
     dispatch(recieveOpenstreets(openStreets));
     return openStreets;
 }

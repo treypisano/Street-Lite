@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import openStreetReducer from './openstreet';
+import openStreetReducer from './openstreets';
 import sessionReducer, { sessionErrorsReducer } from './session';
 
 const rootReducer = combineReducers({

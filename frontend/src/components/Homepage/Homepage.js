@@ -6,7 +6,7 @@ import './homepage.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchOpenStreets } from "../../store/openstreet";
+import { fetchOpenStreets } from "../../store/openstreets";
 import { useLoggedIn } from "../../util/ApiUtil";
 import SignupForm from "../SessionForms/SignupForm"
 import LoginForm from "../SessionForms/LoginForm";
