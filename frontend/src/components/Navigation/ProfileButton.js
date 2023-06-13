@@ -62,6 +62,7 @@ function ProfileButton() {
         return (
             <div>
                 You are logged in
+                <br></br>
                 <LogoutButton />
             </div>
         )
@@ -69,6 +70,7 @@ function ProfileButton() {
         return (
             <div>
                 You are not logged in
+                <br></br>
                 {/* <ul className={`profile-dropdown ${showMenu ? 'open' : ''}`}>
                     <li onClick={openLogin}>
                         <div onClick={openLogin}>Login</div>
