@@ -73,8 +73,8 @@ function Homepage() {
                 </Slider>  
                 
             </div>
-            <div>
-                <Link to="/events" className="events-link">
+            <div className="events-link">
+                <Link to="/events">
                 See all Events
                 </Link>
             </div>
