@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import EventListItem from "./EventListItem";
 import { getEvents, fetchOpenStreets } from "../../store/openstreets";
+import './EventIndex.css'
 
 function EventList() {
     // const events = useSelector(getEvents);
@@ -16,12 +17,12 @@ function EventList() {
     }, [dispatch]);
     
     return (
-        <div className="event-list">
-            <h2>Event List</h2>
-            { Object.values(events).slice(0,5).map((event) => (
-                <EventListItem key={event.id} event={event}/>
-            ))}
-        </div>
+            <div className="event-list">
+                <h2 id="event-list-header">Event List</h2>
+                { Object.values(events).slice(0,20).map((event) => (
+                    <EventListItem key={event.id} event={event}/>
+                ))}
+            </div>
     )
 }
 

@@ -17,8 +17,8 @@ const EventListItem = ( {event} ) => {
                 </div> */}
             </Link>
                 <br></br>
-                <div className="event-dates">{event.dates}</div>
-                <div className='event-location'>Main Street:{event.location.mainStreet}</div>
+                <div className="event-dates">Event Dates: {event.dates}</div>
+                <div className='event-location'>Main Street: {event.location.mainStreet}</div>
         </div>
       )
     
