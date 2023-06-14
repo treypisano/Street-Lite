@@ -13,6 +13,7 @@ const openStreetsRouter = require("./routes/api/openStreets");
 const usersRouter = require("./routes/api/users");
 const csrfRouter = require("./routes/api/csrf");
 const eventRouter = require("./routes/api/event");
+const commentRouter = require("./routes/api/comment");
 
 const app = express();
 
@@ -47,6 +48,7 @@ app.use("/api/users", usersRouter);
 app.use("/api/csrf", csrfRouter);
 app.use("/api/openStreets", openStreetsRouter);
 app.use("/api/events", eventRouter);
+app.use("/api/comments", commentRouter);
 
 app.get(/^(?!\/?api).*/, (req, res) => {
   res.cookie("CSRF-TOKEN", req.csrfToken());
