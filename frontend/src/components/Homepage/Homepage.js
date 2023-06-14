@@ -20,7 +20,7 @@ function Homepage() {
     useEffect(() => {
         dispatch(fetchOpenStreets());
     }, [dispatch]);
-    
+
     const BackArrow = (props) => {
         return (
             <div className="back-arrow" onClick={props.onClick}>
