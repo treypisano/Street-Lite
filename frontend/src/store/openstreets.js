@@ -4,6 +4,7 @@ const RECEIVE_OPENSTREET = "RECEIVE_OPENSTREET";
 const RECEIVE_OPENSTREETS = "RECIEVE_OPENSTREETS";
 const RECEIVE_EVENT = "RECEIVE_EVENT";
 const CLEAR_EVENTS = "CLEAR_EVENTS";
+const REMOVE_EVENT = "REMOVE_EVENT";
 
 export const receiveOpenstreet = (openStreet) => {
   return {
@@ -30,6 +31,13 @@ export const clearEvents = () => {
   return {
     type: CLEAR_EVENTS,
     payload: "destroying events",
+  };
+};
+
+export const removeEvent = (eventId) => {
+  return {
+    type: REMOVE_EVENT,
+    eventId,
   };
 };
 
@@ -89,6 +97,29 @@ export const createEvent = (event) => async (dispatch) => {
   }
 };
 
+export const updateEvent = (event) => async (dispatch) => {
+  const response = await jwtFetch(`/api/events/${event.id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(event),
+  });
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(receiveOpenstreet(data));
+  }
+};
+
+export const deleteEvent = (eventId) => async (dispatch) => {
+  const response = await jwtFetch(`/api/events/${eventId}`, {
+    method: "DELETE",
+  });
+  if (response.ok) {
+    dispatch(removeEvent(eventId));
+  }
+};
+
 export const fetchOpenStreet = (id) => async (dispatch, getState) => {
   const response = await jwtFetch(`/api/openstreets/${id}`, {
     method: "POST",
@@ -108,6 +139,7 @@ export const getEvents = (state) => {
 };
 
 const openStreetReducer = (state = [], action) => {
+  const nextState = { ...state };
   Object.freeze(state);
 
   switch (action.type) {
@@ -117,6 +149,9 @@ const openStreetReducer = (state = [], action) => {
       return state.concat(action.event);
     case CLEAR_EVENTS:
       return [];
+    case REMOVE_EVENT:
+      const eventIdToRemove = action.eventId;
+      return state.filter((event) => event._id !== eventIdToRemove);
     default:
       return state;
   }
