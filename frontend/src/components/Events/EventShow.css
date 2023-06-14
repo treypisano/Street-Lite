@@ -30,3 +30,17 @@
     border: 1px dotted rgb(0, 255, 115);
 }
 
+.days {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 10px;
+    border: 1px solid black;
+}
+
+.days li {
+    border-right: 1px solid black;
+    /* margin-left: 5px; */
+    padding-right: 10px;
+}
+
