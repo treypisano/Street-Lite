@@ -17,8 +17,12 @@
 
 .google-map {
     width: 40%;
+    height: 100%;
     border: 1px dotted rgb(0, 8, 255);
     text-align: center;
+    position: sticky;
+    top: 0;
+    height: calc(90vh - 60px); /* Adjust the height as needed */
 }
 
 .event-list-item {
