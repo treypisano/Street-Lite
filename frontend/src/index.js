@@ -13,7 +13,6 @@ if (process.env.NODE_ENV !== "production") {
   window.store = store;
   window.createEvent = createEvent;
 }
-
 function Root() {
   return (
     <Provider store={store}>

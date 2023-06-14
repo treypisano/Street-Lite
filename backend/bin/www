@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 const mongoose = require("mongoose");
-const { mongoURI: db } = require("../config/keys.js");
+const { mongoURI: db, mongoURI } = require("../config/keys.js");
 /**
  * Module dependencies.
  */
+
 
 var app = require("../app");
 var debug = require("debug");

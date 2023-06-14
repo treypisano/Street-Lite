@@ -8,13 +8,10 @@ import { getCurrentUser } from "./store/session";
 import NavigationBar from "./components/Navigation/NavigationBar";
 import LoginForm from "./components/SessionForms/LoginForm";
 import SignupForm from "./components/SessionForms/SignupForm";
-
 import CreateEvent from "./components/Navigation/CreateEvent";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import EventIndexPage from "./components/Events/EventIndexPage";
 import EventShowPage from "./components/Events/EventShowPage";
-
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -22,7 +19,7 @@ function App() {
   useEffect(() => {
     dispatch(getCurrentUser()).then(() => setLoaded(true));
   }, [dispatch]);
-
+  
   return loaded && (
     <div>
       <NavigationBar />

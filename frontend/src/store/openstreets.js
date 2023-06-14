@@ -1,4 +1,5 @@
 import jwtFetch from "./jwt";
+import { Loader } from "@googlemaps/js-api-loader";
 
 const RECEIVE_OPENSTREET = "RECEIVE_OPENSTREET";
 const RECEIVE_OPENSTREETS = "RECIEVE_OPENSTREETS";
@@ -96,7 +97,18 @@ export const fetchOpenStreet = (id) => async (dispatch, getState) => {
     const data = await response.json()
 
     dispatch(receiveEvent(data))
+
+    return data
 }
+
+// export const fetchPlacesData = (location) => async (dispatch, getState) => {
+//   const secretGoogleAPIKey = process.env.REACT_APP_GOOGLE_API_KEY
+  
+//   // debugger
+//   // const response = await fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${location}&radius=800&type=restaurant&key=${secretGoogleAPIKey}}`)
+//   // const data = await response.json()
+
+// }
 
 // Selector
 export const getEvents = (state) => {

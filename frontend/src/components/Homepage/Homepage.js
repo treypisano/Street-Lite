@@ -78,6 +78,7 @@ function Homepage() {
                 See all Events
                 </Link>
             </div>
+
         </div>
     )
 }
