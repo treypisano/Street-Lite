@@ -29,11 +29,12 @@ function Map() {
   const openStreets = useSelector((state) => state.openStreet);
 
   const markerPositions = useMemo(() => (
-    openStreets.map((openStreet) => ({
+    Array.isArray(openStreets) ? openStreets.map((openStreet) => ({
       lat: parseFloat(openStreet.location.latitude),
       lng: parseFloat(openStreet.location.longitude),
-    }))
+    })) : []
   ), [openStreets]);
+
 
   return (
     <div className="map-container">
