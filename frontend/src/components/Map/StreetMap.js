@@ -42,7 +42,7 @@ function Map() {
 
   return (
     <div className="map-container">
-      <GoogleMap zoom={10} center={center} mapContainerClassName="map-container">
+      <GoogleMap zoom={12} center={center} mapContainerClassName="map-container">
         {markerPositions.map((position, index) => (
           <Marker
             key={index}
