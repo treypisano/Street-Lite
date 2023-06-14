@@ -19,17 +19,32 @@ const EventCalendar = () => {
     let days = currentEvent.dates;
     let daysarray = days.split(',');
 
+
     
     return (
         <div className="calendar">
             <ul className="days">
-                <li id='mon'>Mon</li>
-                <li id='tues'>Tues</li>
-                <li id='wed'>Wed</li>
-                <li id='thur'>Thur</li>
-                <li id='fri'>Fri</li>
-                <li id='sat'>Sat</li>
-                <li id='sun'>Sun</li>
+                <div className={daysarray.includes('mon') ? 'show-day' : null} >
+                    <li id='mon'>Mon</li>
+                </div>
+                <div className={daysarray.includes('tue') ? 'show-day' : null} >
+                    <li id='tues'>Tues</li>
+                </div>
+                <div className={daysarray.includes('wed') ? 'show-day' : null} >
+                    <li id='wed'>Wed</li>
+                </div>
+                <div className={daysarray.includes('thu') ? 'show-day' : null} >
+                    <li id='thu'>Thur</li>
+                </div>
+                <div className={daysarray.includes('fri') ? 'show-day' : null} >
+                    <li id='fri'>Fri</li>
+                </div>
+                <div className={daysarray.includes('sat') ? 'show-day' : null} >
+                    <li id='sat'>Sat</li>
+                </div>
+                <div className={daysarray.includes('sun') ? 'show-day' : null} >
+                    <li id='sun'>Sun</li>
+                </div>
             </ul>
         </div>
     )

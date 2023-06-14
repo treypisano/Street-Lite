@@ -23,9 +23,15 @@ const EventShowPage = () => {
                 <h1>Event Show Page</h1>
                 <div className="event-body">
                     <div className="event-info">
-                        <p>Dates: {currentEvent.dates}</p>
+                        <p>Event Days: </p>
                         <EventCalendar />
+                        <div id='asterisks'>***</div>
                         <p>Main Street: {currentEvent.location.mainStreet}</p>
+                        <div id='asterisks'>***</div>
+                        <p>Start Street: {currentEvent.location.startStreet}</p>
+                        <div id='asterisks'>***</div>
+                        <p>End Street: {currentEvent.location.endStreet}</p>
+                        <div id='asterisks'>***</div>
                     </div>
                     <div className="event-users">
                         <div className="attendees">

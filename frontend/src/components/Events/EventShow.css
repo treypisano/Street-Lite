@@ -10,6 +10,8 @@
     height: 100%;
     border: 1px dotted red;
     padding: 1%;
+    text-align: center;
+    overflow: hidden;
 }
 
 .event-users {
@@ -30,17 +32,37 @@
     border: 1px dotted rgb(0, 255, 115);
 }
 
+.calendar {
+    text-align: center;
+    max-width: 100%;
+}
+
 .days {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     list-style: none;
-    gap: 10px;
-    border: 1px solid black;
+    /* gap: 10px; */
+    /* border: 1px solid black; */
+    
 }
 
 .days li {
-    border-right: 1px solid black;
+    border: 1px solid black;
+    /* border-right: 1px solid black; */
     /* margin-left: 5px; */
-    padding-right: 10px;
+    /* padding-right: 10px; */
+    min-width: 50px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.show-day {
+    background-color: yellow;
+}
+
+#asterisks {
+    text-align: center;
+}
