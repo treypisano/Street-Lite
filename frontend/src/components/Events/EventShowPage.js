@@ -24,11 +24,8 @@ const EventShowPage = () => {
             .then((event) => {
                 if (isLoaded) {
                     const latLngObj = new window.google.maps.LatLng(event.location.latitude, event.location.longitude);
-
-                    const map = new window.google.maps.Map(document.getElementById('map'), {
-                        center: latLngObj,
-                        zoom: 15
-                    });
+                    
+                    let map = new window.google.maps.Map(document.createElement('div'));
 
                     const request = {
                         location: latLngObj,
