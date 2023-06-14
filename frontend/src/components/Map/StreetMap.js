@@ -1,13 +1,14 @@
 import React, { useMemo} from "react";
 import { useSelector } from "react-redux";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+
 import "./style.css";
 
 export default function StreetMap() {
   
   const { isLoaded, url, loadError } = useLoadScript({
     // replace the below with your own API key
-    googleMapsApiKey: 'insert api key here',
+    googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY,
   });
 
   //shows loading screen while map is loading
@@ -28,10 +29,10 @@ function Map() {
   const openStreets = useSelector((state) => state.openStreet);
 
   const markerPositions = useMemo(() => (
-    Array.isArray(openStreets) ? openStreets.map((openStreet) => ({
+    openStreets.map((openStreet) => ({
       lat: parseFloat(openStreet.location.latitude),
       lng: parseFloat(openStreet.location.longitude),
-    })) : []
+    }))
   ), [openStreets]);
 
   return (
