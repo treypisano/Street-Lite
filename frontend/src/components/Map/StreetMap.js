@@ -4,6 +4,22 @@ import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import { useHistory } from "react-router-dom";
 import "./style.css";
 
+export default function StreetMap() {
+  
+  const { isLoaded, url, loadError } = useLoadScript({
+    googleMapsApiKey:  process.env.REACT_APP_MOH_MAPS_API_KEY,
+  });
+
+  if (!isLoaded) return <div>Loading...</div>;
+  if (loadError) return <div>Error loading maps, check your API key</div>;
+
+  return (
+    <div>
+      <Map />;
+    </div>
+  );
+}
+
 function Map() {
   const center = useMemo(() => ({ lat: 40.7128, lng: -74.006 }), []);
   const openStreets = useSelector((state) => state.openStreet);
@@ -42,5 +58,3 @@ function Map() {
     </div>
   );
 }
-
-export default Map;
