@@ -1,0 +1,37 @@
+.list-and-map {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+}
+
+
+.event-list {
+    width: 60%;
+    border: 1px dotted red;
+}
+
+#event-list-header {
+    text-align: center;
+}
+
+.google-map {
+    width: 40%;
+    height: 100%;
+    border: 1px dotted rgb(0, 8, 255);
+    text-align: center;
+    position: sticky;
+    top: 0;
+    height: calc(90vh - 60px); /* Adjust the height as needed */
+}
+
+.event-list-item {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    border: 1px solid forestgreen;
+}
+
+.event-list :hover {
+    background-color: beige;
+}

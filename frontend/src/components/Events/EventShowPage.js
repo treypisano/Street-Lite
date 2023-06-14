@@ -5,6 +5,8 @@ import { fetchOpenStreet } from "../../store/openstreets";
 import { clearEvents } from "../../store/openstreets";
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import { Loader } from "@googlemaps/js-api-loader"
+import EventCalendar from "./EventCalendar";
+import './EventShow.css';
 
 const EventShowPage = () => {
     const dispatch = useDispatch()
@@ -74,10 +76,33 @@ const EventShowPage = () => {
         return (
             <div className="event-show-page">
                 <h1>Event Show Page</h1>
-                <p>{currentEvent.dates}</p>
-                <p>{currentEvent.location.mainStreet}</p>
-                {listItems}
-                <div id="map" style={{display: "none"}}></div>
+                
+
+                <div className="event-body">
+                    <div className="event-info">
+                        <p>Event Days: </p>
+                        <EventCalendar />
+                        <div id='asterisks'>***</div>
+                        <p>Main Street: {currentEvent.location.mainStreet}</p>
+                        <div id='asterisks'>***</div>
+                        <p>Start Street: {currentEvent.location.startStreet}</p>
+                        <div id='asterisks'>***</div>
+                        <p>End Street: {currentEvent.location.endStreet}</p>
+                        <div id='asterisks'>***</div>
+                        <div>
+                            {listItems}
+                            <div id="map" style={{display: "none"}}></div>
+                        </div>
+                    </div>
+                    <div className="event-users">
+                        <div className="attendees">
+                            Attendees
+                        </div>
+                        <div className="comments">
+                            Comments
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

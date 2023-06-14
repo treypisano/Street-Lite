@@ -1,11 +1,15 @@
-footer {
+.footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: aqua;
+    background-image: linear-gradient(to left, white, #FDD34F, #88C659);
     padding-top: 2%;
     padding-bottom: 2%;
     color: black;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
 }

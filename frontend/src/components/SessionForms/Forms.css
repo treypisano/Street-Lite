@@ -1,0 +1,18 @@
+.session-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+.session-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.errors {
+    color: rgb(255, 0, 0);
+}

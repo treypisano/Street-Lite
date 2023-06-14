@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Modal, Button, Form } from "react-bootstrap";
-import { createEvent } from "../../store/event";
+import { createEvent } from "../../store/openstreets";
 
 const CreateEvent = () => {
   const dispatch = useDispatch();
@@ -12,6 +12,8 @@ const CreateEvent = () => {
       startStreet: "",
       endStreet: "",
       mainStreet: "",
+      latitude: "",
+      longitude: "",
     },
   });
 
@@ -51,6 +53,8 @@ const CreateEvent = () => {
         startStreet: "",
         endStreet: "",
         mainStreet: "",
+        latitude: "",
+        longitude: "",
       },
     });
     handleClose();
@@ -104,6 +108,26 @@ const CreateEvent = () => {
                 type="text"
                 name="mainStreet"
                 value={eventData.location.mainStreet}
+                onChange={handleLocationChange}
+                required
+              />
+            </Form.Group>
+            <Form.Group controlId="formLatitude">
+              <Form.Label>Latitude</Form.Label>
+              <Form.Control
+                type="text"
+                name="latitude"
+                value={eventData.location.latitude}
+                onChange={handleLocationChange}
+                required
+              />
+            </Form.Group>
+            <Form.Group controlId="formLongitude">
+              <Form.Label>Longitude</Form.Label>
+              <Form.Control
+                type="text"
+                name="longitude"
+                value={eventData.location.longitude}
                 onChange={handleLocationChange}
                 required
               />

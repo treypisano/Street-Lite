@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { signup, clearSessionErrors } from '../../store/session';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import './Forms.css';
 
 function SignupForm () {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
-  const errors = useSelector(state => state.errors.session);
+  const errors = useSelector(state => (state.errors));
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -52,12 +53,13 @@ function SignupForm () {
   }
 
   return (
-    <div>
-      <form className="session-form" onSubmit={handleSubmit}>
+    <div className="session-form">
+      <form className='session-fields' onSubmit={handleSubmit}>
         <h2>Sign Up Form</h2>
+        <div>{errors?.msg}</div>
         <div className="errors">{errors?.email}</div>
         <label>
-          <span>Email</span>
+          <span>Email </span>
           <input type="text"
             value={email}
             onChange={update('email')}
@@ -66,7 +68,7 @@ function SignupForm () {
         </label>
         <div className="errors">{errors?.username}</div>
         <label>
-          <span>Username</span>
+          <span>Username </span>
           <input type="text"
             value={username}
             onChange={update('username')}
@@ -75,7 +77,7 @@ function SignupForm () {
         </label>
         <div className="errors">{errors?.password}</div>
         <label>
-          <span>Password</span>
+          <span>Password </span>
           <input type="password"
             value={password}
             onChange={update('password')}
@@ -86,13 +88,14 @@ function SignupForm () {
           {password !== password2 && 'Confirm Password field must match'}
         </div>
         <label>
-          <span>Confirm Password</span>
+          <span>Confirm Password </span>
           <input type="password"
             value={password2}
             onChange={update('password2')}
             placeholder="Confirm Password"
           />
         </label>
+        <br></br>
         <input
           type="submit"
           value="Sign Up"
@@ -101,8 +104,9 @@ function SignupForm () {
       </form>
       <div className="login-redirect">
         Already have an account?
+        <br></br>
         <Link to="/login" className="login-link">
-          Login
+        Login
         </Link>
       </div>
     </div>
