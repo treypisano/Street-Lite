@@ -4,18 +4,25 @@
     position: sticky;
     top: 0px;
     padding: 1%;
-    background-image: linear-gradient(to right, white, #FDD34F, #88C659);
+    background-color: #59b7c6;
+    /* background-image: linear-gradient(to right, white, #75625e); */
+    /* background-image: linear-gradient(to right, white, #FDD34F, #88C659); */
 }
+
 
 .logo {
     max-width: 200px;
     height: auto;
     display: flex;
     align-items: center;
-  }
+}
 
-  .profile-button {
+#hidden {
+  opacity: 0;
+}
+
+.profile-button {
     position: absolute;
     right: 20px;
     top: 20px;
-  }
+}

@@ -15,6 +15,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import EventIndexPage from "./components/Events/EventIndexPage";
 import EventShowPage from "./components/Events/EventShowPage";
 
+import './index.css';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -24,7 +26,7 @@ function App() {
   }, [dispatch]);
 
   return loaded && (
-    <div>
+    <div className="webpage">
       <NavigationBar />
       <Switch>
         <Route path="/" exact>

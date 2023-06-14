@@ -56,12 +56,12 @@ function ProfileButton() {
   };
   */
   
-
+  const currentUser = useSelector((state) => state.session.user);
 
     if (useLoggedIn()) {
         return (
             <div>
-                You are logged in
+                Welcome Back, {currentUser.username}!
                 <br></br>
                 <LogoutButton />
             </div>
