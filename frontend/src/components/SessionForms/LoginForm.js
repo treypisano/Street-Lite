@@ -3,11 +3,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { login, clearSessionErrors } from '../../store/session';
 import DemoLogin from './DemoLogin';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import './Forms.css';
 
 function LoginForm () {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const errors = useSelector(state => state.errors.session);
+  const errors = useSelector(state => state.errors);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,27 +28,27 @@ function LoginForm () {
   }
 
   return (
-    <div>
-      <form className="session-form" onSubmit={handleSubmit}>
+    <div className='session-form'>
+      <form className="session-fields" onSubmit={handleSubmit}>
         <h2>Log In Form</h2>
-        <div className="errors">{errors?.email}</div>
         <label>
-          <span>Email</span>
+          <span>Email </span>
           <input type="text"
             value={email}
             onChange={update('email')}
             placeholder="Email"
           />
         </label>
-        <div className="errors">{errors?.password}</div>
+        {/* <div className="errors">{errors?.email}</div> */}
         <label>
-          <span>Password</span>
+          <span>Password </span>
           <input type="password"
             value={password}
             onChange={update('password')}
             placeholder="Password"
           />
         </label>
+        <div className="errors">{errors?.email}</div>
         <input
           type="submit"
           value="Log In"
@@ -57,6 +58,7 @@ function LoginForm () {
       <DemoLogin />
       <div className="signup-redirect">
             New to street_lite?
+            <br></br>
             <Link to="/signup" className="signup-link">
               Sign Up
             </Link>
