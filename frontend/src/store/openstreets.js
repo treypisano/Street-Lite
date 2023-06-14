@@ -55,7 +55,7 @@ function splitData(data) {
 
 function saveOpenStreetsData(openStreets) {
   const splitUpData = splitData(openStreets);
-  console.log(splitUpData);
+  // console.log(splitUpData);
   splitUpData.forEach((chunk) => {
     jwtFetch("api/openstreets/", {
       method: "POST",
@@ -139,6 +139,7 @@ export const getEvents = (state) => {
 };
 
 const openStreetReducer = (state = [], action) => {
+  const nextState = { ...state };
   Object.freeze(state);
 
   switch (action.type) {
@@ -149,7 +150,8 @@ const openStreetReducer = (state = [], action) => {
     case CLEAR_EVENTS:
       return [];
     case REMOVE_EVENT:
-      return state;
+      const eventIdToRemove = action.eventId;
+      return state.filter((event) => event._id !== eventIdToRemove);
     default:
       return state;
   }

@@ -5,7 +5,7 @@ import App from "./App";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import configureStore from "./store";
-import { createEvent, updateEvent, removeEvent } from "./store/openstreets";
+import { createEvent, updateEvent, deleteEvent } from "./store/openstreets";
 
 let store = configureStore({});
 
@@ -13,7 +13,7 @@ if (process.env.NODE_ENV !== "production") {
   window.store = store;
   window.createEvent = createEvent;
   window.updateEvent = updateEvent;
-  window.removeEvent = removeEvent;
+  window.deleteEvent = deleteEvent;
 }
 
 function Root() {
