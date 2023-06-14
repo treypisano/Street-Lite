@@ -1,7 +1,6 @@
 import React, { useMemo} from "react";
 import { useSelector } from "react-redux";
 import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
-
 import "./style.css";
 
 export default function StreetMap() {
@@ -48,8 +47,8 @@ function Map() {
             key={index} // Assign a unique key to each marker
             position={position}
             icon={{
-              url: "https://static.wikia.nocookie.net/thetanklore/images/9/99/Lemonke.jpg/revision/latest?cb=20210120063807", // Replace with the path to your custom marker image
-              scaledSize: new window.google.maps.Size(40, 40), // Adjust the size of the marker image
+              url: require("./mapmarkers.png"), // Replace with the path to your custom marker image
+              scaledSize: new window.google.maps.Size(80, 50), // Adjust the size of the marker image
             }}
           />
         ))}
