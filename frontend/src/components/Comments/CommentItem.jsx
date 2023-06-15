@@ -1,43 +1,18 @@
-// import React, { useEffect, useState } from "react";
-// import jwtFetch from "../../store/jwt";
-
-// const CommentItem = ({ comment }) => {
-//   const [author, setAuthor] = useState(null);
-
-//   useEffect(() => {
-//     const fetchUserById = async (userId) => {
-//       try {
-//         const res = await jwtFetch(`/api/users/${userId}`);
-//         if (res.ok) {
-//           const author = await res.json();
-//           setAuthor(author);
-//         } else {
-//           throw new Error(
-//             `Failed to fetch user: ${res.status} ${res.statusText}`
-//           );
-//         }
-//       } catch (error) {
-//         console.error("Failed to fetch user:", error);
-//       }
-//     };
-//     fetchUserById(comment.userId);
-//   }, []);
-
-//   return (
-//     <div>
-//       <p>{comment.body}</p>
-//       <p>Posted by: {author ? author.username : "Unknown"}</p>
-//     </div>
-//   );
-// };
-
-// export default CommentItem;
-
 import jwtFetch from "../../store/jwt";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { updateComment, deleteComment } from "../../store/comment";
+import { useDispatch } from "react-redux";
 
 const CommentItem = ({ comment }) => {
+  const dispatch = useDispatch();
   const [author, setAuthor] = useState();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const handleDelete = () => {
+    dispatch(deleteComment(comment._id));
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   const fetchUserById = async (comment) => {
     const res = await jwtFetch(`/api/users/author/${comment.userId}`);
     if (res.ok) {
@@ -50,14 +25,46 @@ const CommentItem = ({ comment }) => {
       setAuthor(user);
     });
   }, []);
+  const commentCreatedAt = comment.createdAt;
+  const currentTime = new Date();
+  const createdAt = new Date(commentCreatedAt);
+
+  // Calculate the difference in milliseconds
+  const timeDifference = currentTime - createdAt;
+
+  // Convert milliseconds to seconds, minutes, hours, and days
+  const seconds = Math.floor(timeDifference / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 24);
+
+  // Create a function to format the time difference
+  function formatTimeAgo(time) {
+    if (time < 60) {
+      return time + "s";
+    } else if (time < 60 * 60) {
+      return Math.floor(time / 60) + "m";
+    } else if (time < 60 * 60 * 24) {
+      return Math.floor(time / (60 * 60)) + "h";
+    } else {
+      return Math.floor(time / (60 * 60 * 24)) + "d";
+    }
+  }
+  // Format the time difference
+  const timeAgo = formatTimeAgo(seconds);
 
   if (!author) return <div>loading...</div>;
 
   return (
     <div>
       <div className="comment-container">
-        <p>Posted by: {author.username}</p>
+        <h5>{author.username}</h5>
         <p>{comment.body}</p>
+        <h6>{timeAgo}</h6>
+        <button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+          Options
+        </button>
+        {isDropdownOpen && <button onClick={handleDelete}>Delete</button>}
       </div>
     </div>
   );

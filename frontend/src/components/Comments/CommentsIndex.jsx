@@ -18,7 +18,6 @@ const CommentIndex = () => {
 
   return (
     <div>
-      <h2>Comments</h2>
       {Object.keys(comments).length === 0 ? (
         <p>No comments yet.</p>
       ) : (

@@ -49,7 +49,7 @@ router.put("/comments/:id", async (req, res) => {
 });
 
 // Delete a comment
-router.delete("/comments/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const comment = await Comment.findByIdAndDelete(id);

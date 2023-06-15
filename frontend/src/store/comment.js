@@ -104,7 +104,7 @@ export const deleteComment = (commentId) => async (dispatch) => {
     });
 
     if (res.ok) {
-      dispatch(removeComment(commentId));
+      await dispatch(removeComment(commentId));
     }
   } catch (error) {
     // Handle error
@@ -112,18 +112,19 @@ export const deleteComment = (commentId) => async (dispatch) => {
   }
 };
 
-const commentsReducer = (state = {}, action) => {
+const commentsReducer = (state = [], action) => {
   const nextState = { ...state };
 
   switch (action.type) {
     case RECEIVE_COMMENTS:
       return action.comments;
     case RECEIVE_COMMENT:
-      nextState[action.comment._id] = action.comment;
-      return nextState;
+      // nextState[action.comment._id] = action.comment;
+      // return nextState;
+      return state.concat(action.comment);
     case REMOVE_COMMENT:
-      delete nextState[action.commentId];
-      return nextState;
+      const commentIdToRemove = action.commentId;
+      return state.filter((comment) => comment._id !== commentIdToRemove);
     case CLEAR_COMMENTS:
       return {};
     default:
