@@ -62,3 +62,5 @@ router.post('/:id', async (req, res, next) => {
 
     res.send(currentEvent)
 })
+
+module.exports = router;
