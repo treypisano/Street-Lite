@@ -20,6 +20,11 @@ import img3 from '../../images/open-streets/3.jpg';
 import img4 from '../../images/open-streets/4.jpeg';
 import img5 from '../../images/open-streets/5.jpg';
 import img6 from '../../images/open-streets/6.jpg';
+import img7 from '../../images/open-streets/7.jpeg';
+import img8 from '../../images/open-streets/8.jpeg';
+import img9 from '../../images/open-streets/9.jpeg';
+import img10 from '../../images/open-streets/10.jpeg';
+import img11 from '../../images/open-streets/11.jpeg';
 
 function Homepage() {
     const dispatch = useDispatch();
@@ -64,15 +69,12 @@ function Homepage() {
             <div className="carousel">  
                 <a href="/events"><h1 className="homepage-title">explore events</h1></a>
                 <Slider {...sliderSettings}>
-                    <div className="pic-container">
-                        <img src={img2} className="carousel-image" alt="" />
-                    </div>
-                    <div className="pic-container">
+                    {/* <div className="pic-container">
                         <img src={img1} className="carousel-image" alt="" />
                     </div>
                     <div className="pic-container">
                         <img src={img3} className="carousel-image" alt="" />
-                    </div>
+                    </div> */}
                     <div className="pic-container">
                         <img src={img4} className="carousel-image" alt="" />
                     </div>
@@ -81,6 +83,24 @@ function Homepage() {
                     </div>
                     <div className="pic-container">
                         <img src={img6} className="carousel-image" alt="" />
+                    </div>
+                    <div className="pic-container">
+                        <img src={img7} className="carousel-image" alt="" />
+                    </div>
+                    <div className="pic-container">
+                        <img src={img8} className="carousel-image" alt="" />
+                    </div>
+                    <div className="pic-container">
+                        <img src={img9} className="carousel-image" alt="" />
+                    </div>
+                    <div className="pic-container">
+                        <img src={img10} className="carousel-image" alt="" />
+                    </div>
+                    <div className="pic-container">
+                        <img src={img11} className="carousel-image" alt="" />
+                    </div>
+                    <div className="pic-container">
+                        <img src={img2} className="carousel-image" alt="" />
                     </div>
                     {/* <div>
                         <img src={logogreen} className="carousel-image" alt="Green Logo" />
