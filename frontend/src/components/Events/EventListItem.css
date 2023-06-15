@@ -1,0 +1,10 @@
+.event-list-item {
+    font-size: 25px;
+    text-decoration: none;
+  }
+  
+  .event-location,
+  .event-dates {
+    font-size: 15px;
+  }
+  

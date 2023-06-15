@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchOpenStreet } from "../../store/openstreets";
 import { clearEvents } from "../../store/openstreets";
+import EventCalendar from "./EventCalendar";
 import './EventShow.css';
 
 const EventShowPage = () => {
@@ -22,8 +23,15 @@ const EventShowPage = () => {
                 <h1>Event Show Page</h1>
                 <div className="event-body">
                     <div className="event-info">
-                        <p>Dates: {currentEvent.dates}</p>
+                        <p>Event Days: </p>
+                        <EventCalendar />
+                        <div id='asterisks'>***</div>
                         <p>Main Street: {currentEvent.location.mainStreet}</p>
+                        <div id='asterisks'>***</div>
+                        <p>Start Street: {currentEvent.location.startStreet}</p>
+                        <div id='asterisks'>***</div>
+                        <p>End Street: {currentEvent.location.endStreet}</p>
+                        <div id='asterisks'>***</div>
                     </div>
                     <div className="event-users">
                         <div className="attendees">

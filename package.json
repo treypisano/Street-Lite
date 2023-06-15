@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/treypisano/Street-Lite/issues"
   },
-  "homepage": "https://github.com/treypisano/Street-Lite#readme"
+  "homepage": "https://github.com/treypisano/Street-Lite#readme",
+  "dependencies": {
+    "@react-google-maps/api": "^2.18.1"
+  }
 }

@@ -1,1 +1,12 @@
 /* TODO Add site wide styles */
+
+.webpage {
+    height: 100%;
+    overflow: auto;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}

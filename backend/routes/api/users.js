@@ -1,4 +1,5 @@
 const express = require('express');
+// const { check, validationResult } = require('express-validator');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
@@ -13,7 +14,23 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.post('/register', async (req, res, next) => {
+router.post('/register', 
+  // [
+  //   check('email')
+  //     .isEmail()
+  //     .withMessage('Invalid email address'),
+  //   check('password')
+  //     .isLength({ min: 6 })
+  //     .withMessage('Password must be at least 6 characters long'),
+  // ],
+  async (req, res, next) => {
+
+    // const errors = validationResult(req);
+    // if (!errors.isEmpty()) {
+    //   const err = new Error('Validation Error');
+    //   err.statusCode = 400;
+    //   err.errors = errors.mapped();
+    //   return next(err);}
 
   const user = await User.findOne({
     $or: [{ email: req.body.email }, { username: req.body.username }]
@@ -32,6 +49,11 @@ router.post('/register', async (req, res, next) => {
     err.errors = errors;
     return next(err);
   }
+
+  // if (!req.body.email.includes('@')) {
+  //   const errors = {};
+  //   errors.email = "Must be a valid email";
+  // }
 
   const newUser = new User({
     username: req.body.username,
@@ -61,7 +83,7 @@ router.post('/login', async (req, res, next) => {
     if (!user) {
       const err = new Error('Invalid credentials');
       err.statusCode = 400;
-      err.errors = { email: "Invalid credentials" };
+      err.errors = { email: "Invalid login credentials. Please try again." };
       return next(err);
     }
     return res.json(await loginUser(user)); 
