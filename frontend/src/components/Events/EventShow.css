@@ -66,3 +66,48 @@
 #asterisks {
     text-align: center;
 }
+
+.single-place {
+    text-align: start;
+    border-bottom: rgb(172, 172, 172) solid 1px;
+    height: 100px;
+    width: 100%;
+    color: white;
+    text-shadow: -1px 1px 2px #000,
+    1px 1px 2px #000,
+    1px -1px 0 #000,
+    -1px -1px 0 #000;
+    display: flex;
+    flex-direction: column;
+}
+
+.single-place-name {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.single-place-rating {
+    color: #88C659;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.single-place-picture {
+    height: 100%;
+    width: 100%;
+}
+
+.single-place-vicinity {
+    color: white;
+	/* -webkit-text-stroke: 1px black; */
+}
+
+.all-places {
+    display: flex;
+    flex-direction: column;
+}
+
+/* img {
+    height: 100%;
+    width: 100%;
+} */
