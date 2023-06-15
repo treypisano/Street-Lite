@@ -62,7 +62,7 @@ function ProfileButton() {
     if (useLoggedIn()) {
         return (
             <div>
-                Welcome Back, {currentUser.username}!
+                Welcome Back, {currentUser.username}
                 <br></br>
                 <LogoutButton className='logout'/>
             </div>
