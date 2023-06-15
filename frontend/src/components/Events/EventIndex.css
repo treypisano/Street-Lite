@@ -8,7 +8,7 @@
 
 .event-list {
     width: 50%;
-    border: 1px dotted red;
+    /* border: 1px dotted red; */
 }
 
 #event-list-header {
@@ -18,7 +18,7 @@
 .google-map {
     width: 50%;
     height: 100%;
-    border: 1px dotted rgb(0, 8, 255);
+    /* border: 1px dotted rgb(0, 8, 255); */
     text-align: center;
     position: sticky;
     top: 0;
