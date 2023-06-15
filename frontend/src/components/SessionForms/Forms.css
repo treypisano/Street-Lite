@@ -3,16 +3,65 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
     margin-top: 50px;
-}
-
-.session-fields {
+    text-align: center;
+  }
+  
+  .session-fields {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-.errors {
+    width: 300px;
+  }
+  
+  .error-msg {
     color: rgb(255, 0, 0);
-}
+    font-size: 14px;
+  }
+  
+  input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .submit-btn {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .submit-btn:hover {
+    background-color: #88C659;
+  }
+  
+  .redirect-msg {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .redirect-link {
+    color: #4caf50;
+    text-decoration: none;
+  }
+  
+  .redirect-link:hover {
+    text-decoration: underline;
+  }
+
+  .demo-login-container {
+    margin-top: 15px;
+  }
+  
+  
