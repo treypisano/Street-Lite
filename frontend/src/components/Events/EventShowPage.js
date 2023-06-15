@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from "react";
-import { useParams } from 'react-router-dom';
+import React, {useEffect, useState, useRef} from "react";
+import { useParams, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchOpenStreet } from "../../store/openstreets";
 import { clearEvents } from "../../store/openstreets";
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, useLoadScript } from '@react-google-maps/api';
 import { Loader } from "@googlemaps/js-api-loader"
 import EventCalendar from "./EventCalendar";
 import './EventShow.css';
@@ -14,32 +14,42 @@ const EventShowPage = () => {
     const [places, setPlaces] = useState({})
     const currentEventId = params.eventId
     const currentEvent = useSelector(state => state.openStreet[0])
+    const mapRef = useRef(null)
+    const history = useHistory()
 
-    const { isLoaded, loadError } = useJsApiLoader({
+    const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_TREY_GOOGLE_API_KEY,
         libraries: ['places']
     });
 
+    
     useEffect(() => {
         dispatch(clearEvents());
-        dispatch(fetchOpenStreet(currentEventId))
-            .then((event) => {
-                if (isLoaded) {
-                    const latLngObj = new window.google.maps.LatLng(event.location.latitude, event.location.longitude);
-                    
-                    let map = new window.google.maps.Map(document.createElement('div'));
+    },[])
 
-                    const request = {
-                        location: latLngObj,
-                        radius: '400',
-                        type: ['restaurant']
-                    };
+    useEffect(() => {
+        if (currentEventId) {
+            dispatch(fetchOpenStreet(currentEventId))
+        }
+                
+    }, [dispatch, currentEventId]);
 
-                    const service = new window.google.maps.places.PlacesService(map);
-                    service.nearbySearch(request, callback);
-                }
-            });
-    }, [dispatch, currentEventId, isLoaded]);
+    useEffect(() => {
+        if (isLoaded && currentEvent) {
+            const latLngObj =  new window.google.maps.LatLng(currentEvent.location.latitude, currentEvent.location.longitude);
+            
+            let map = new window.google.maps.Map(document.createElement('div'));
+
+            const request = {
+                location: latLngObj,
+                radius: '400',
+                type: ['restaurant']
+            };
+            const service = new window.google.maps.places.PlacesService(map);
+        
+            service.nearbySearch(request, callback);
+        }
+    }, [isLoaded, currentEvent])
 
     function callback(results, status) {
         if (status === window.google.maps.places.PlacesServiceStatus.OK) {
@@ -47,27 +57,31 @@ const EventShowPage = () => {
             //     setPlaces({places, ...results[i]}) ;
             // }'
             setPlaces(results)
-            console.log(places)
         }
+    }
+
+    if (!isLoaded) {
+        return (<div>loading</div>)
     }
 
     if (Object.keys(places).length === 0) {
         return (
-            <>
+        <>
             <div id="map" style={{display: "none"}}></div>
-        <div>loading!
-        </div>
-        </>)
+            <div>
+                loading!
+            </div>
+        </>
+        )
     }
 
-    // debugger
     const listItems = places.map(places => {
         return (
-        <>
-            <li>{places.name}</li>
-            <li>{places.rating}</li>
-            <li>{places.vicinity}</li>
-        </>
+        <div className="single-place">
+            <div>{places.name}</div>
+            <div>{places.rating}</div>
+            <div>{places.vicinity}</div>
+        </div>
         )
         
     })
@@ -76,8 +90,6 @@ const EventShowPage = () => {
         return (
             <div className="event-show-page">
                 <h1>Event Show Page</h1>
-                
-
                 <div className="event-body">
                     <div className="event-info">
                         <p>Event Days: </p>
