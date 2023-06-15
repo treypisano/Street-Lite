@@ -12,8 +12,8 @@ const BottomFooter = () => {
         </ul>
         <ul className="bottom-footer-col">
           <h3 className='bottom-footer-title'>Harjit Singh</h3>
-          <li><a href="https://github.com/">GitHub</a></li>
-          <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+          <li><a href="https://github.com/harjitsingh2">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/harjitsingh2">LinkedIn</a></li>
           <li><a href="https://wellfound.com/">Wellfound</a></li>
         </ul>
         <ul className="bottom-footer-col">
@@ -30,6 +30,11 @@ const BottomFooter = () => {
         </ul>
         <ul className="bottom-footer-col">
           <h3 className='bottom-footer-title'>Technologies Used</h3>
+            <li>MongoDB</li>
+            <li>Express</li>
+            <li>React/Node</li>
+            <li>Google Maps API</li>
+            <li>NYC Open Data API</li>
         </ul>
       </div>
     </footer>
