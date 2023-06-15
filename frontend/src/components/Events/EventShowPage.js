@@ -12,6 +12,16 @@ import "./EventShow.css";
 import CommentForm from "../Comments/CommentForm";
 import CommentIndex from "../Comments/CommentsIndex";
 
+const capitalizeFirstLetter = (str) => {
+    const words = str.split(" ");
+    const capitalizedWords = words.map((word) => {
+      const firstLetter = word.charAt(0).toUpperCase();
+      const restOfWord = word.slice(1).toLowerCase();
+      return firstLetter + restOfWord;
+    });
+    return capitalizedWords.join(" ");
+  };
+
 const EventShowPage = () => {
     const dispatch = useDispatch()
     const params = useParams()
@@ -61,6 +71,9 @@ const EventShowPage = () => {
             //     setPlaces({places, ...results[i]}) ;
             // }'
             setPlaces(results)
+            console.log(results)
+            
+            console.log(Object.values(results)[0].photos[0].getUrl())
         }
     }
 
@@ -79,12 +92,21 @@ const EventShowPage = () => {
         )
     }
 
-    const listItems = places.map(places => {
+    const listItems = places.map(place => {
+        const photos = place.photos
+        let photoUrl;
+        if (photos) {
+            photoUrl = photos[0].getUrl()
+        }
+
         return (
         <div className="single-place">
-            <div>{places.name}</div>
-            <div>{places.rating}</div>
-            <div>{places.vicinity}</div>
+            <div className="single-place-name">{place.name}</div>
+            <div className="single-place-rating">{place.rating}</div>
+            <div className="single-place-vicinity">{place.vicinity}</div>
+            <div className="single-place-picture">
+                <img src={photoUrl}></img>
+            </div>
         </div>
         )
         
@@ -93,7 +115,7 @@ const EventShowPage = () => {
     if (currentEvent) {
         return (
             <div className="event-show-page">
-                <h1>Event Show Page</h1>
+                <h1>{capitalizeFirstLetter(currentEvent.location.mainStreet)}</h1>
                 <div className="event-body">
                     <div className="event-info">
                         <p>Event Days: </p>
@@ -105,7 +127,7 @@ const EventShowPage = () => {
                         <div id='asterisks'>***</div>
                         <p>End Street: {currentEvent.location.endStreet}</p>
                         <div id='asterisks'>***</div>
-                        <div>
+                        <div className="all-places">
                             {listItems}
                             <div id="map" style={{display: "none"}}></div>
                         </div>
