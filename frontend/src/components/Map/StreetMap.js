@@ -21,7 +21,7 @@ export default function StreetMap() {
 }
 
 function Map() {
-  const center = useMemo(() => ({ lat: 40.7128, lng: -74.006 }), []);
+  const center = useMemo(() => ({ lat: 40.734344, lng: -73.922479 }), []);
   const openStreets = useSelector((state) => state.openStreet);
   const history = useHistory();
 
