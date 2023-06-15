@@ -12,6 +12,7 @@ import CreateEvent from "./components/Navigation/CreateEvent";
 import "bootstrap/dist/css/bootstrap.min.css";
 import EventIndexPage from "./components/Events/EventIndexPage";
 import EventShowPage from "./components/Events/EventShowPage";
+import BottomFooter from "./components/BottomFooter/BottomFooter";
 import './index.css';
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
         </Route>
       </Switch>
       {isEventPage && <Footer />}
+      <BottomFooter />
     </div>
 
   );

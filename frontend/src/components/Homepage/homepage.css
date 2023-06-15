@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #59b7c6;
+    background-color: white;
 }
 
 .homepage-title {
