@@ -7,12 +7,14 @@ const csurf = require("csurf");
 const bcrypt = require("bcryptjs");
 const { isProduction } = require("./config/keys");
 require("./models/User");
+require("./models/Attend");
 require("./config/passport");
 const passport = require("passport");
 const openStreetsRouter = require("./routes/api/openStreets");
 const usersRouter = require("./routes/api/users");
 const csrfRouter = require("./routes/api/csrf");
 const eventRouter = require("./routes/api/event");
+const attendRouter = require('./routes/api/attend')
 
 const app = express();
 
@@ -47,6 +49,7 @@ app.use("/api/users", usersRouter);
 app.use("/api/csrf", csrfRouter);
 app.use("/api/openStreets", openStreetsRouter);
 app.use("/api/events", eventRouter);
+app.use("/api/attend", attendRouter)
 
 app.get(/^(?!\/?api).*/, (req, res) => {
   res.cookie("CSRF-TOKEN", req.csrfToken());

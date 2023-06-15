@@ -1,15 +1,15 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const likeSchema = new Schema({
+const attendSchema = new Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     required: true,
   },
-  postId: {
+  eventId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Post",
+    ref: "Event",
     required: true,
   },
   createdAt: {
@@ -18,4 +18,4 @@ const likeSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("Like", likeSchema);
+module.exports = mongoose.model("Attend", attendSchema);

@@ -6,6 +6,7 @@ import { clearEvents } from "../../store/openstreets";
 import { GoogleMap, useJsApiLoader, useLoadScript } from '@react-google-maps/api';
 import { Loader } from "@googlemaps/js-api-loader"
 import EventCalendar from "./EventCalendar";
+import AttendList from "../Attends/AttendList";
 import './EventShow.css';
 
 const EventShowPage = () => {
@@ -109,6 +110,7 @@ const EventShowPage = () => {
                     <div className="event-users">
                         <div className="attendees">
                             Attendees
+                            <AttendList />
                         </div>
                         <div className="comments">
                             Comments
