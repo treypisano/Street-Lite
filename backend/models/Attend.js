@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const attendSchema = new Schema({
   userId: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "User",
     required: true,
   },

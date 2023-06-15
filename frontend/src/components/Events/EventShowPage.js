@@ -8,6 +8,9 @@ import { Loader } from "@googlemaps/js-api-loader"
 import EventCalendar from "./EventCalendar";
 import AttendList from "../Attends/AttendList";
 import './EventShow.css';
+import "./EventShow.css";
+import CommentForm from "../Comments/CommentForm";
+import CommentIndex from "../Comments/CommentsIndex";
 
 const EventShowPage = () => {
     const dispatch = useDispatch()
@@ -114,13 +117,14 @@ const EventShowPage = () => {
                         </div>
                         <div className="comments">
                             Comments
+                            <CommentForm />
+                            <CommentIndex />
                         </div>
                     </div>
                 </div>
             </div>
-        )
-    }
-    
-}
+    );
+  }
+};
 
 export default EventShowPage;

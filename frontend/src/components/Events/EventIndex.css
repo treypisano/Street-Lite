@@ -7,7 +7,7 @@
 
 
 .event-list {
-    width: 60%;
+    width: 50%;
     border: 1px dotted red;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .google-map {
-    width: 40%;
+    width: 50%;
     height: 100%;
     border: 1px dotted rgb(0, 8, 255);
     text-align: center;
