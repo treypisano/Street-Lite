@@ -16,6 +16,7 @@
     justify-content: center;
     gap: 50px;
     text-decoration: none;
+    z-index: 5;
 }
 
 .footer a {
@@ -23,8 +24,8 @@
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s ease;
-  }
+}
   
-  .footer a:hover {
+.footer a:hover {
     color: lightgray;
-  }
+}

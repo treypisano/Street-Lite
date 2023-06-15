@@ -101,9 +101,11 @@ const EventShowPage = () => {
 
         return (
         <div className="single-place">
-            <div className="single-place-name">{place.name}</div>
-            <div className="single-place-rating">{place.rating}</div>
-            <div className="single-place-vicinity">{place.vicinity}</div>
+            <div className="single-place-text">
+                <div className="single-place-name">{place.name}</div>
+                <div className="single-place-rating">Rating: {place.rating} Stars</div>
+                <div className="single-place-vicinity">{place.vicinity}</div>
+            </div>
             <div className="single-place-picture">
                 <img src={photoUrl}></img>
             </div>
@@ -127,6 +129,7 @@ const EventShowPage = () => {
                         <div id='asterisks'>***</div>
                         <p>End Street: {currentEvent.location.endStreet}</p>
                         <div id='asterisks'>***</div>
+                        <div id='nearby-places'>Nearby Places</div>
                         <div className="all-places">
                             {listItems}
                             <div id="map" style={{display: "none"}}></div>
@@ -138,7 +141,6 @@ const EventShowPage = () => {
                             <AttendList />
                         </div>
                         <div className="comments">
-                            Comments
                             <CommentForm />
                             <CommentIndex />
                         </div>
