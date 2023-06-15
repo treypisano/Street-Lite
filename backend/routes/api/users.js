@@ -14,7 +14,7 @@ router.get("/", function (req, res, next) {
   });
 });
 
-router.get("/:id", async (req, res, next) => {
+router.get("/author/:id", async (req, res, next) => {
   try {
     const user = await User.findById(req.params.id);
     if (!user) {

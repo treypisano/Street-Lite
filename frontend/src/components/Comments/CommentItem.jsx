@@ -39,8 +39,7 @@ import { useEffect, useState } from "react";
 const CommentItem = ({ comment }) => {
   const [author, setAuthor] = useState();
   const fetchUserById = async (comment) => {
-    debugger;
-    const res = await jwtFetch(`/api/users/${comment.userId}`);
+    const res = await jwtFetch(`/api/users/author/${comment.userId}`);
     if (res.ok) {
       const author = await res.json();
       return author;
@@ -51,10 +50,15 @@ const CommentItem = ({ comment }) => {
       setAuthor(user);
     });
   }, []);
+
+  if (!author) return <div>loading...</div>;
+
   return (
     <div>
-      <p>{comment.body}</p>
-      <p>Posted by: {comment.userId}</p>
+      <div className="comment-container">
+        <p>Posted by: {author.username}</p>
+        <p>{comment.body}</p>
+      </div>
     </div>
   );
 };
