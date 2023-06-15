@@ -13,6 +13,13 @@ import LoginForm from "../SessionForms/LoginForm";
 import LogoutButton from "../SessionForms/LogoutButton";
 import LoginFormModal from "../SessionForms/LoginFormModal";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { NavLink } from "react-router-dom/cjs/react-router-dom";
+import img1 from '../../images/open-streets/1.jpg';
+import img2 from '../../images/open-streets/2.webp';
+import img3 from '../../images/open-streets/3.jpg';
+import img4 from '../../images/open-streets/4.jpeg';
+import img5 from '../../images/open-streets/5.jpg';
+import img6 from '../../images/open-streets/6.jpg';
 
 function Homepage() {
     const dispatch = useDispatch();
@@ -54,29 +61,37 @@ function Homepage() {
     
     return (
         <div className="homepage">
-            <h1>Welcome to Street_Lite</h1>
-            {/* {
-            useLoggedIn() ? <LogoutButton /> :
-            <>
-            <LoginForm />
-            <SignupForm />
-            </>
-            } */}
-            <div className="carousel">
+            <div className="carousel">  
+                <a href="/events"><h1 className="homepage-title">explore events</h1></a>
                 <Slider {...sliderSettings}>
-                    <div>
+                    <div className="pic-container">
+                        <img src={img2} className="carousel-image" alt="" />
+                    </div>
+                    <div className="pic-container">
+                        <img src={img1} className="carousel-image" alt="" />
+                    </div>
+                    <div className="pic-container">
+                        <img src={img3} className="carousel-image" alt="" />
+                    </div>
+                    <div className="pic-container">
+                        <img src={img4} className="carousel-image" alt="" />
+                    </div>
+                    <div className="pic-container">
+                        <img src={img5} className="carousel-image" alt="" />
+                    </div>
+                    <div className="pic-container">
+                        <img src={img6} className="carousel-image" alt="" />
+                    </div>
+                    {/* <div>
                         <img src={logogreen} className="carousel-image" alt="Green Logo" />
                     </div>
                     <div>
                         <img src={logoyellow} className="carousel-image" alt="Yellow Logo" />
-                    </div>
+                    </div> */}
                 </Slider>  
                 
             </div>
             <div className="events-link">
-                <Link to="/events">
-                See all Events
-                </Link>
             </div>
 
         </div>

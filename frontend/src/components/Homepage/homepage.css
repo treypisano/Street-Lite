@@ -2,29 +2,72 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    background-color: #59b7c6;
 }
 
-h1 {
-   text-align: center;
+.homepage-title {
+  text-align: center;
+  font-size: 80px;
+  color: white;
+  position: absolute; 
+  top: 65%; 
+  left: 28%; 
+  transform: translate(-50%, -50%); 
+  z-index: 2; 
+  background-color: #918e8e8f;
+  background-image: linear-gradient(
+    45deg,
+    #88C659 50%,
+    /* #0a4234 50%, */
+    black 50%
+  );
+  padding: 1%;
+  border-radius: 20px;
+}
+
+.homepage-title:hover {
+    animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+    background-image: linear-gradient(
+    45deg,
+    black 50%,
+    #88C659 50%
+    /* #0a4234 50% */
+  );
+  color: white;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
 }
 
 .carousel {
-    /* max-width: 800px; */
-    /* height: auto; */
-    /* display: flex; */
-    /* align-items: center; */
-    /* justify-content: center; */
-    width: 80%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 
 }
 
+.pic-container {
+  width: 1000px;
+  height: 900px;
+}
 
 .carousel-image {
     width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
 }
 
 
@@ -32,11 +75,11 @@ h1 {
 .next-arrow {
   position: absolute;
   top: 50%;
-  height: 40px;
+  height: 60px;
   width: 60px;
-  background-color: #aca7a7;
-  color: #000000;
-  border-radius: 30px;
+  background-color: #88C659;
+  color: white;
+  border-radius: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,14 +88,14 @@ h1 {
 }
 
 .back-arrow {
-  left: 0px;
+  left: 10px;
   margin-top: 40px;
   /* top: 250px; */
   font-size: 30px;
 }
 
 .next-arrow {
-  right: 0px;
+  right: 10px;
   margin-top: 40px;
   /* top: 250px; */
   font-size: 30px;
@@ -62,3 +105,4 @@ h1 {
     text-align: center;
     margin-top: 50px;
 }
+
