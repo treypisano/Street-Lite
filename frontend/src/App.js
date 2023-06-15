@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 import Homepage from "./components/Homepage/Homepage";
 import Footer from "../src/components/Footer/Footer";
 import { getCurrentUser } from "./store/session";
@@ -17,9 +17,13 @@ import './index.css';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  const location = useLocation();
+  
   useEffect(() => {
     dispatch(getCurrentUser()).then(() => setLoaded(true));
   }, [dispatch]);
+
+  const isEventPage = location.pathname.startsWith("/events");
   
   return loaded && (
     <div className="webpage">
@@ -44,7 +48,7 @@ function App() {
           <CreateEvent />
         </Route>
       </Switch>
-      <Footer />
+      {isEventPage && <Footer />}
     </div>
 
   );
