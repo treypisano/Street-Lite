@@ -3,8 +3,7 @@ const Schema = mongoose.Schema;
 
 const eventSchema = new Schema(
   {
-    dates: 
-    {
+    dates: {
       type: String,
       required: true,
     },
@@ -39,7 +38,7 @@ const eventSchema = new Schema(
       },
     },
     user: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "User",
     },
   },

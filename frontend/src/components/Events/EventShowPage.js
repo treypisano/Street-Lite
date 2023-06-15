@@ -6,7 +6,11 @@ import { clearEvents } from "../../store/openstreets";
 import { GoogleMap, useJsApiLoader, useLoadScript } from '@react-google-maps/api';
 import { Loader } from "@googlemaps/js-api-loader"
 import EventCalendar from "./EventCalendar";
+import AttendList from "../Attends/AttendList";
 import './EventShow.css';
+import "./EventShow.css";
+import CommentForm from "../Comments/CommentForm";
+import CommentIndex from "../Comments/CommentsIndex";
 
 const EventShowPage = () => {
     const dispatch = useDispatch()
@@ -109,16 +113,18 @@ const EventShowPage = () => {
                     <div className="event-users">
                         <div className="attendees">
                             Attendees
+                            <AttendList />
                         </div>
                         <div className="comments">
                             Comments
+                            <CommentForm />
+                            <CommentIndex />
                         </div>
                     </div>
                 </div>
             </div>
-        )
-    }
-    
-}
+    );
+  }
+};
 
 export default EventShowPage;
