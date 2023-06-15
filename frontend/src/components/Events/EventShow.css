@@ -1,3 +1,9 @@
+.event-show-page h1 {
+    text-align: center;
+    font-weight: 800;
+    background-image: linear-gradient(white, #88C659);
+}
+
 .event-body {
     display: flex;
     flex-direction: row;
@@ -8,10 +14,14 @@
 .event-info {
     width: 50%;
     height: 100%;
-    border: 1px dotted red;
+    /* border: 1px dotted red; */
     padding: 1%;
     text-align: center;
     overflow: hidden;
+}
+
+.event-info p {
+    font-weight: 500;
 }
 
 .event-users {
@@ -67,6 +77,12 @@
     text-align: center;
 }
 
+#nearby-places {
+    text-align: left;
+    font-size: 25px;
+    margin-left: 5px;
+}
+
 .single-place {
     text-align: start;
     border-bottom: rgb(172, 172, 172) solid 1px;
@@ -79,6 +95,14 @@
     -1px -1px 0 #000;
     display: flex;
     flex-direction: column;
+}
+
+.single-place-text {
+    text-align: left;
+    color: white;
+    position: absolute; 
+    z-index: 2; 
+    margin-left: 5px;
 }
 
 .single-place-name {
