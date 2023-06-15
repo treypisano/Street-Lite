@@ -31,36 +31,34 @@ function formatGeocode(geoCode) {
 router.post("/", async (req, res, next) => {
   let data = req.body;
 
-  for (let i = 0; i < data.length; i++) {
-    const currentEvent = data[i];
-    const coordinates = formatGeocode(currentEvent.the_geom.coordinates[0][0]);
+    for(let i = 0; i < data.length; i++ ) {
+        const currentEvent = data[i]
+        const coordinates = formatGeocode(currentEvent.the_geom.coordinates[0][0]) 
+        
+        const newCurrentEvent = new Event({
+            dates: currentEvent.apprdayswe,
+            location: {
+                startStreet: currentEvent.apprfromst,
+                endStreet: currentEvent.apprtostre,
+                mainStreet: currentEvent.appronstre,
+                latitude: coordinates[0],
+                longitude: coordinates[1]
+            }
+        })
 
-    const newCurrentEvent = new Event({
-      dates: currentEvent.apprdayswe,
-      location: {
-        startStreet: currentEvent.apprfromst,
-        endStreet: currentEvent.apprtostre,
-        mainStreet: currentEvent.appronstre,
-        latitude: coordinates[0],
-        longitude: coordinates[1],
-      },
-    });
+        await newCurrentEvent.save()
+    }
+})
 
-    await newCurrentEvent.save();
-  }
-});
+router.post('/all', async (req, res, next) => {
+    const allEvents = await Event.find()
 
-router.post("/all", async (req, res, next) => {
-  const allEvents = await Event.find();
+    res.send(allEvents)  
+})
 
-  res.send(allEvents);
-});
+router.post('/:id', async (req, res, next) => {
+    const currentEvent = await Event.findById(req.params.id)
+    console.log(currentEvent)
 
-router.post("/:id", async (req, res, next) => {
-  const currentEvent = await Event.findById(req.params.id);
-  // console.log(currentEvent)
-
-  res.send(currentEvent);
-});
-
-module.exports = router;
+    res.send(currentEvent)
+})

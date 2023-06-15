@@ -16,7 +16,6 @@ if (process.env.NODE_ENV !== "production") {
   window.updateEvent = updateEvent;
   window.deleteEvent = deleteEvent;
 }
-
 function Root() {
   return (
     <Provider store={store}>
