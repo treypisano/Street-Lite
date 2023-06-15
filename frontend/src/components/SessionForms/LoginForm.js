@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { login, clearSessionErrors } from '../../store/session';
 import DemoLogin from './DemoLogin';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom';
 import './Forms.css';
 
-function LoginForm () {
+function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const errors = useSelector(state => state.errors);
@@ -17,51 +17,46 @@ function LoginForm () {
     };
   }, [dispatch]);
 
-  const update = (field) => {
+  const update = field => {
     const setState = field === 'email' ? setEmail : setPassword;
     return e => setState(e.currentTarget.value);
-  }
+  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    dispatch(login({ email, password })); 
-  }
+    dispatch(login({ email, password }));
+  };
 
   return (
-    <div className='session-form'>
+    <div className="session-form">
       <form className="session-fields" onSubmit={handleSubmit}>
-        <h2>Log In Form</h2>
-        <label>
-          <span>Email </span>
-          <input type="text"
+        <h2>Log In</h2>
+        <div className="form-group">
+          <input
+            type="text"
             value={email}
             onChange={update('email')}
             placeholder="Email"
           />
-        </label>
-        {/* <div className="errors">{errors?.email}</div> */}
-        <label>
-          <span>Password </span>
-          <input type="password"
+        </div>
+        <div className="form-group">
+          <input
+            type="password"
             value={password}
             onChange={update('password')}
             placeholder="Password"
           />
-        </label>
-        <div className="errors">{errors?.email}</div>
-        <input
-          type="submit"
-          value="Log In"
-          disabled={!email || !password}
-        />
+        </div>
+        <div className="error-msg">{errors?.email}</div>
+        <button type="submit" className="submit-btn" disabled={!email || !password}>
+          Log In
+        </button>
       </form>
-      <DemoLogin />
-      <div className="signup-redirect">
-            New to street_lite?
-            <br></br>
-            <Link to="/signup" className="signup-link">
-              Sign Up
-            </Link>
+      <div className="demo-login-container">
+        <DemoLogin />
+      </div>
+      <div className="redirect-msg">
+        New to street_lite? <Link to="/signup" className="redirect-link">Sign Up</Link>
       </div>
     </div>
   );

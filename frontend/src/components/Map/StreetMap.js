@@ -15,7 +15,7 @@ export default function StreetMap() {
 
   return (
     <div>
-      <Map />;
+      <Map />
     </div>
   );
 }

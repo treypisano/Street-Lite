@@ -8,6 +8,7 @@ import LogoutButton from "../SessionForms/LogoutButton";
 import SignupFormModal from "../SessionForms/SignupFormModal";
 import ReactModal from "react-modal";
 import { NavLink } from "react-router-dom/cjs/react-router-dom";
+import './navigation.css';
 
 function ProfileButton() {
   
@@ -63,29 +64,21 @@ function ProfileButton() {
             <div>
                 Welcome Back, {currentUser.username}!
                 <br></br>
-                <LogoutButton />
+                <LogoutButton className='logout'/>
             </div>
         )
     } else {
         return (
             <div>
-                You are not logged in
-                <br></br>
-                {/* <ul className={`profile-dropdown ${showMenu ? 'open' : ''}`}>
-                    <li onClick={openLogin}>
-                        <div onClick={openLogin}>Login</div>
-                    </li>
-                    <li onClick={openSignup}>
-                        <div onClick={openSignup}>Sign Up</div>
-                    </li>
-                </ul> */}
-                <NavLink className="login" to="/login">
-                    Log In
-                </NavLink>
-                <br></br>
-                <NavLink className="signup" to="/signup">
-                    Signup
-                </NavLink>
+                <div className="session-buttons">
+                  <NavLink className="login" to="/login">
+                      Log In
+                  </NavLink>
+                  <br></br>
+                  <NavLink className="signup" to="/signup">
+                      Signup
+                  </NavLink>
+                </div>
             </div>
         )
     }
