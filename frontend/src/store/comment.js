@@ -40,14 +40,24 @@ export const removeComment = (commentId) => {
 //   }
 // };
 
+export const fetchCommentsByPostId = (postId) => async (dispatch) => {
+  try {
+    const res = await jwtFetch(`/api/comments/${postId}`);
+    if (res.ok) {
+      const comments = await res.json();
+      dispatch(receiveComments(comments));
+    }
+  } catch (error) {
+    console.error("Failed to fetch comments:", error);
+  }
+};
+
 export const createComment = (data) => async (dispatch) => {
   try {
-    debugger;
     const res = await jwtFetch("/api/comments/", {
       method: "POST",
       body: JSON.stringify(data),
     });
-    debugger;
     const comment = await res.json();
     dispatch(receiveComment(comment));
   } catch (err) {
@@ -101,7 +111,7 @@ const commentsReducer = (state = {}, action) => {
     case RECEIVE_COMMENTS:
       return { ...nextState, ...action.comments };
     case RECEIVE_COMMENT:
-      nextState[action.comment.id] = action.comment;
+      nextState[action.comment._id] = action.comment;
       return nextState;
     case REMOVE_COMMENT:
       delete nextState[action.commentId];
