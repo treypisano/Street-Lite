@@ -62,4 +62,14 @@ router.delete("/comments/:id", async (req, res) => {
   }
 });
 
+router.get("/:eventId", async (req, res) => {
+  try {
+    const { eventId } = req.params;
+    const comments = await Comment.find({ eventId: eventId });
+    res.json(comments);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch comments" });
+  }
+});
+
 module.exports = router;

@@ -3,6 +3,7 @@ import jwtFetch from "./jwt";
 const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 const RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
 const REMOVE_COMMENT = "REMOVE_COMMENT";
+const CLEAR_COMMENTS = "CLEAR_COMMENT";
 
 export const receiveComment = (comment) => {
   return {
@@ -25,6 +26,13 @@ export const removeComment = (commentId) => {
   };
 };
 
+export const clearComments = () => {
+  return {
+    type: CLEAR_COMMENTS,
+    payload: "destroying comments",
+  };
+};
+
 // export const createComment = (comment) => async (dispatch) => {
 //   debugger;
 //   const res = await jwtFetch("/api/comments/", {
@@ -40,9 +48,9 @@ export const removeComment = (commentId) => {
 //   }
 // };
 
-export const fetchCommentsByPostId = (postId) => async (dispatch) => {
+export const fetchCommentsByEventId = (eventId) => async (dispatch) => {
   try {
-    const res = await jwtFetch(`/api/comments/${postId}`);
+    const res = await jwtFetch(`/api/comments/${eventId}`);
     if (res.ok) {
       const comments = await res.json();
       dispatch(receiveComments(comments));
@@ -109,13 +117,15 @@ const commentsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_COMMENTS:
-      return { ...nextState, ...action.comments };
+      return action.comments;
     case RECEIVE_COMMENT:
       nextState[action.comment._id] = action.comment;
       return nextState;
     case REMOVE_COMMENT:
       delete nextState[action.commentId];
       return nextState;
+    case CLEAR_COMMENTS:
+      return {};
     default:
       return state;
   }
