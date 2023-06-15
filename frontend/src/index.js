@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import './reset.css';
 import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
@@ -18,7 +17,6 @@ if (process.env.NODE_ENV !== "production") {
   window.deleteEvent = deleteEvent;
   window.createComment = createComment;
 }
-
 function Root() {
   return (
     <Provider store={store}>

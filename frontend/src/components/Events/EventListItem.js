@@ -1,27 +1,37 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-// import image from '../../image/image.webp'
-import './EventListItem.css'
+import './EventListItem.css';
 
 const EventListItem = ({ event }) => {
-  // const event = props.openStreet;
-  // console.log(event);
+  const days = event.dates.split(",").map(day => day.trim().toUpperCase());
+  const formattedDays = days.join(" ");
+  const startStreet = capitalizeFirstLetter(event.location.startStreet);
+  const endStreet = capitalizeFirstLetter(event.location.endStreet);
 
   return (
     <div className="event-list-item" key={event._id}>
-      <Link to={`/events/${event._id}`}>
-        {event.location.mainStreet}
-        {/* <div className='index-image-container'>
-                    <img src={image} className="listing-pic" alt="" />
-                    <img src={listing.photoUrls.length > 0 ? listing.photoUrls[0] : image } alt="" className='listing-pic' />
-                </div> */}
-      </Link>
-      <div className="event-location">
-        From {event.location.startStreet} to {event.location.endStreet}
+      <div className="event-link">
+        <Link to={`/events/${event._id}`} className="link">
+          {event.location.mainStreet}
+        </Link>
       </div>
-      <div className="event-dates">Days Open: {event.dates}</div>
+      <div className="event-location">
+        From {startStreet} to {endStreet}
+      </div>
+      <div className="event-dates">{formattedDays}</div>
     </div>
   );
 };
+
+const capitalizeFirstLetter = (str) => {
+  const words = str.split(" ");
+  const capitalizedWords = words.map((word) => {
+    const firstLetter = word.charAt(0).toUpperCase();
+    const restOfWord = word.slice(1).toLowerCase();
+    return firstLetter + restOfWord;
+  });
+  return capitalizedWords.join(" ");
+};
+
 
 export default EventListItem;
