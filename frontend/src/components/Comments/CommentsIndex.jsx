@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCommentsByEventId, clearComments } from "../../store/comment";
+import CommentItem from "./CommentItem";
 
 const CommentIndex = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,9 @@ const CommentIndex = () => {
       ) : (
         <ul>
           {Object.keys(comments).map((commentId) => (
-            <li key={commentId}>{comments[commentId].body}</li>
+            <li key={commentId}>
+              <CommentItem comment={comments[commentId]} />
+            </li>
           ))}
         </ul>
       )}
