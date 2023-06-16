@@ -1,10 +1,14 @@
 import jwtFetch from "../../store/jwt";
 import { useEffect, useState, useRef } from "react";
 import { updateComment, deleteComment } from "../../store/comment";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import "./CommentItem.css";
 
 const CommentItem = ({ comment }) => {
   const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.session.user);
+  const dropdownRef = useRef(null);
+
   const [author, setAuthor] = useState();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -17,6 +21,20 @@ const CommentItem = ({ comment }) => {
     dispatch(deleteComment(comment._id));
     setIsDropdownOpen(false);
   };
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
 
   const fetchUserById = async (comment) => {
     const res = await jwtFetch(`/api/users/author/${comment.userId}`);
@@ -63,11 +81,28 @@ const CommentItem = ({ comment }) => {
   return (
     <div>
       <div className="comment-container">
-        <h5>{author.username}</h5>
+        <div className="comment-header">
+          <div className="left-header">
+            <h5>{author.username}</h5>
+            <h6>{timeAgo}</h6>
+          </div>
+          <div className="right-header">
+            {currentUser._id === author._id && (
+              <div className="event-dropdown-container" ref={dropdownRef}>
+                <button className="event-dropdown-btn" onClick={toggleDropdown}>
+                  ...
+                </button>
+                {isDropdownOpen && (
+                  <div className="event-dropdown-content">
+                    {/* <button onClick={handleUpdate}>Update</button> */}
+                    <button onClick={handleDelete}>Delete</button>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
         <p>{comment.body}</p>
-        <h6>{timeAgo}</h6>
-        <button onClick={toggleDropdown}>Options</button>
-        {isDropdownOpen && <button onClick={handleDelete}>Delete</button>}
       </div>
     </div>
   );

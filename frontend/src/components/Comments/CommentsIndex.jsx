@@ -22,11 +22,13 @@ const CommentIndex = () => {
         <p>No comments yet.</p>
       ) : (
         <ul>
-          {Object.keys(comments).map((commentId) => (
-            <li key={commentId}>
-              <CommentItem comment={comments[commentId]} />
-            </li>
-          ))}
+          {Object.keys(comments)
+            .reverse()
+            .map((commentId) => (
+              <li key={commentId}>
+                <CommentItem comment={comments[commentId]} />
+              </li>
+            ))}
         </ul>
       )}
     </div>

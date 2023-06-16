@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createComment } from "../../store/comment";
 import { useEffect } from "react";
+import "./CommentForm.css";
 
 const CommentForm = () => {
   const [body, setBody] = useState("");
@@ -31,12 +32,11 @@ const CommentForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="comment-form">
       <textarea
         value={body}
         onChange={(e) => setBody(e.target.value)}
-        placeholder="Write a comment..."
-        required
+        placeholder="Leave an honest review!"
       ></textarea>
       <button type="submit">Submit</button>
     </form>

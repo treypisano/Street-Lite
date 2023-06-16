@@ -1,134 +1,131 @@
 .event-show-page h1 {
-    text-align: center;
-    font-weight: 800;
-    background-image: linear-gradient(white, #88C659);
+  text-align: center;
+  font-weight: 800;
+  background-image: linear-gradient(white, #88c659);
 }
 
 .event-body {
-    display: flex;
-    flex-direction: row;
-    padding: 1%;
-    gap: 10px;
+  display: flex;
+  flex-direction: row;
+  padding: 1%;
+  gap: 10px;
 }
 
 .event-info {
-    width: 50%;
-    height: 100%;
-    /* border: 1px dotted red; */
-    padding: 1%;
-    text-align: center;
-    overflow: hidden;
+  width: 50%;
+  height: 100%;
+  /* border: 1px dotted red; */
+  padding: 1%;
+  text-align: center;
+  overflow: hidden;
 }
 
 .event-info p {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .event-users {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    gap: 20px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 20px;
+  text-align: center;
 }
 
 .attendees {
-    height: 40%;
-    border: 1px dotted rgb(0, 8, 255);
+  height: 10%;
+  border: 1px dotted rgb(0, 8, 255);
 }
 
 .comments {
-    height: 60%;
-    border: 1px dotted rgb(0, 255, 115);
+  height: 60%;
+  border: 1px dotted rgb(0, 255, 115);
 }
 
 .calendar {
-    text-align: center;
-    max-width: 100%;
+  text-align: center;
+  max-width: 100%;
 }
 
 .days {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    list-style: none;
-    /* gap: 10px; */
-    /* border: 1px solid black; */
-    
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style: none;
+  /* gap: 10px; */
+  /* border: 1px solid black; */
 }
 
 .days li {
-    border: 1px solid black;
-    /* border-right: 1px solid black; */
-    /* margin-left: 5px; */
-    /* padding-right: 10px; */
-    min-width: 50px;
-    min-height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  border: 1px solid black;
+  /* border-right: 1px solid black; */
+  /* margin-left: 5px; */
+  /* padding-right: 10px; */
+  min-width: 50px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .show-day {
-    background-color: yellow;
+  background-color: yellow;
 }
 
 #asterisks {
-    text-align: center;
+  text-align: center;
 }
 
 #nearby-places {
-    text-align: left;
-    font-size: 25px;
-    margin-left: 5px;
+  text-align: left;
+  font-size: 25px;
+  margin-left: 5px;
 }
 
 .single-place {
-    text-align: start;
-    border-bottom: rgb(172, 172, 172) solid 1px;
-    height: 100px;
-    width: 100%;
-    color: white;
-    text-shadow: -1px 1px 2px #000,
-    1px 1px 2px #000,
-    1px -1px 0 #000,
+  text-align: start;
+  border-bottom: rgb(172, 172, 172) solid 1px;
+  height: 100px;
+  width: 100%;
+  color: white;
+  text-shadow: -1px 1px 2px #000, 1px 1px 2px #000, 1px -1px 0 #000,
     -1px -1px 0 #000;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .single-place-text {
-    text-align: left;
-    color: white;
-    position: absolute; 
-    z-index: 2; 
-    margin-left: 5px;
+  text-align: left;
+  color: white;
+  position: absolute;
+  z-index: 2;
+  margin-left: 5px;
 }
 
 .single-place-name {
-    font-size: 30px;
-    font-weight: 700;
+  font-size: 30px;
+  font-weight: 700;
 }
 
 .single-place-rating {
-    color: #88C659;
-    font-weight: 500;
-    font-size: 20px;
+  color: #88c659;
+  font-weight: 500;
+  font-size: 20px;
 }
 
 .single-place-picture {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 .single-place-vicinity {
-    color: white;
-	/* -webkit-text-stroke: 1px black; */
+  color: white;
+  /* -webkit-text-stroke: 1px black; */
 }
 
 .all-places {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 /* img {
