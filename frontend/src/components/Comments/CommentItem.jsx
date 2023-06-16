@@ -13,6 +13,9 @@ const CommentItem = ({ comment }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editedBody, setEditedBody] = useState(comment.body);
+  const [isEdited, setIsEdited] = useState(
+    comment.createdAt !== comment.updatedAt
+  );
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -26,6 +29,7 @@ const CommentItem = ({ comment }) => {
 
   const handleUpdate = () => {
     setIsEditing(true);
+    setIsDropdownOpen(false);
   };
 
   const handleSave = () => {
@@ -34,6 +38,7 @@ const CommentItem = ({ comment }) => {
 
     // Exit the editing mode
     setIsEditing(false);
+    setIsEdited(true);
   };
 
   useEffect(() => {
@@ -101,6 +106,11 @@ const CommentItem = ({ comment }) => {
           <div className="left-header">
             <h5>{author.username}</h5>
             <h6>{timeAgo}</h6>
+            {isEdited && (
+              <span className="edited-indicator">
+                <h6>(edited) </h6>
+              </span>
+            )}
           </div>
           <div className="right-header">
             {currentUser && currentUser._id === author._id && (
@@ -125,11 +135,16 @@ const CommentItem = ({ comment }) => {
               onChange={(e) => setEditedBody(e.target.value)}
               placeholder="Edit your comment..."
               required
+              className="edit-textarea"
             ></textarea>
-            <button onClick={handleSave}>Save</button>
+            <button onClick={handleSave} className="save-edit-but">
+              Save{" "}
+            </button>
           </div>
         ) : (
-          <p>{comment.body}</p>
+          <div>
+            <p>{comment.body}</p>
+          </div>
         )}
       </div>
     </div>
