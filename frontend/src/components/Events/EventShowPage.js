@@ -17,14 +17,14 @@ import CommentForm from "../Comments/CommentForm";
 import CommentIndex from "../Comments/CommentsIndex";
 
 const capitalizeFirstLetter = (str) => {
-    const words = str.split(" ");
-    const capitalizedWords = words.map((word) => {
-      const firstLetter = word.charAt(0).toUpperCase();
-      const restOfWord = word.slice(1).toLowerCase();
-      return firstLetter + restOfWord;
-    });
-    return capitalizedWords.join(" ");
-  };
+  const words = str.split(" ");
+  const capitalizedWords = words.map((word) => {
+    const firstLetter = word.charAt(0).toUpperCase();
+    const restOfWord = word.slice(1).toLowerCase();
+    return firstLetter + restOfWord;
+  });
+  return capitalizedWords.join(" ");
+};
 
 const EventShowPage = () => {
   const dispatch = useDispatch();
@@ -68,18 +68,18 @@ const EventShowPage = () => {
       service.nearbySearch(request, callback);
     }
   }, [isLoaded, currentEvent]);
-  
-    function callback(results, status) {
-        if (status === window.google.maps.places.PlacesServiceStatus.OK) {
-            // for (let i = 0; i < results.length; i++) {
-            //     setPlaces({places, ...results[i]}) ;
-            // }'
-            setPlaces(results)
-            console.log(results)
-            
-            console.log(Object.values(results)[0].photos[0].getUrl())
-        }
+
+  function callback(results, status) {
+    if (status === window.google.maps.places.PlacesServiceStatus.OK) {
+      // for (let i = 0; i < results.length; i++) {
+      //     setPlaces({places, ...results[i]}) ;
+      // }'
+      setPlaces(results);
+      console.log(results);
+
+      console.log(Object.values(results)[0].photos[0].getUrl());
     }
+  }
   if (!isLoaded) {
     return <div>loading</div>;
   }
@@ -92,57 +92,57 @@ const EventShowPage = () => {
       </>
     );
   }
-  const listItems = places.map(place => {
-        const photos = place.photos
-        let photoUrl;
-        if (photos) {
-            photoUrl = photos[0].getUrl()
-        }
+  const listItems = places.map((place) => {
+    const photos = place.photos;
+    let photoUrl;
+    if (photos) {
+      photoUrl = photos[0].getUrl();
+    }
 
-        return (
-        <div className="single-place">
-            <div className="single-place-text">
-                <div className="single-place-name">{place.name}</div>
-                <div className="single-place-rating">Rating: {place.rating} Stars</div>
-                <div className="single-place-vicinity">{place.vicinity}</div>
-            </div>
-            <div className="single-place-picture">
-                <img src={photoUrl}></img>
-            </div>
+    return (
+      <div className="single-place">
+        <div className="single-place-text">
+          <div className="single-place-name">{place.name}</div>
+          <div className="single-place-rating">
+            Rating: {place.rating} Stars
+          </div>
+          <div className="single-place-vicinity">{place.vicinity}</div>
         </div>
-        )
-        
-    })
-  
-    if (currentEvent) {
-        return (
-            <div className="event-show-page">
-                <h1>{capitalizeFirstLetter(currentEvent.location.mainStreet)}</h1>
-                <div className="event-body">
-                    <div className="event-info">
-                        <p>Event Days: </p>
-                        <EventCalendar />
-                        <div id='asterisks'>***</div>
-                        <p>Main Street: {currentEvent.location.mainStreet}</p>
-                        <div id='asterisks'>***</div>
-                        <p>Start Street: {currentEvent.location.startStreet}</p>
-                        <div id='asterisks'>***</div>
-                        <p>End Street: {currentEvent.location.endStreet}</p>
-                        <div id='asterisks'>***</div>
-                        <div id='nearby-places'>Nearby Places</div>
-                        <div className="all-places">
-                            {listItems}
-                            <div id="map" style={{display: "none"}}></div>
-                        </div>
-                    </div>
-                    <div className="event-users">
-                        <div className="attendees">
-                            Attendees
-                            <AttendList />
-                       
+        <div className="single-place-picture">
+          <img src={photoUrl}></img>
+        </div>
+      </div>
+    );
+  });
+
+  if (currentEvent) {
+    return (
+      <div className="event-show-page">
+        <h1>{capitalizeFirstLetter(currentEvent.location.mainStreet)}</h1>
+        <div className="event-body">
+          <div className="event-info">
+            <p>Event Days: </p>
+            <EventCalendar />
+            <div id="asterisks">***</div>
+            <p>Main Street: {currentEvent.location.mainStreet}</p>
+            <div id="asterisks">***</div>
+            <p>Start Street: {currentEvent.location.startStreet}</p>
+            <div id="asterisks">***</div>
+            <p>End Street: {currentEvent.location.endStreet}</p>
+            <div id="asterisks">***</div>
+            <div id="nearby-places">Nearby Places</div>
+            <div className="all-places">
+              {listItems}
+              <div id="map" style={{ display: "none" }}></div>
+            </div>
+          </div>
+          <div className="event-users">
+            <div className="attendees">
+              Attendees
+              <AttendList />
             </div>
             <div className="comments">
-              Comments
+              <h2>Comments</h2>
               <CommentForm />
               <CommentIndex />
             </div>

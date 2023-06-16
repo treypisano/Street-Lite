@@ -1,86 +1,85 @@
 .event-show-page h1 {
-    text-align: center;
-    font-weight: 800;
-    background-image: linear-gradient(white, #88C659);
+  text-align: center;
+  font-weight: 800;
+  background-image: linear-gradient(white, #88c659);
 }
 
 .event-body {
-    display: flex;
-    flex-direction: row;
-    padding: 1%;
-    gap: 10px;
+  display: flex;
+  flex-direction: row;
+  padding: 1%;
+  gap: 10px;
 }
 
 .event-info {
-    width: 50%;
-    height: 100%;
-    /* border: 1px dotted red; */
-    padding: 1%;
-    text-align: center;
-    overflow: hidden;
+  width: 50%;
+  height: 100%;
+  /* border: 1px dotted red; */
+  padding: 1%;
+  text-align: center;
+  overflow: hidden;
 }
 
 .event-info p {
-    font-weight: 500;
+  font-weight: 500;
 }
 
 .event-users {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    gap: 20px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 20px;
+  text-align: center;
 }
 
 .attendees {
-    height: 40%;
-    border: 1px dotted rgb(0, 8, 255);
+  height: 10%;
+  border: 1px dotted rgb(0, 8, 255);
 }
 
 .comments {
-    height: 60%;
-    border: 1px dotted rgb(0, 255, 115);
+  height: 60%;
+  border: 1px dotted rgb(0, 255, 115);
 }
 
 .calendar {
-    text-align: center;
-    max-width: 100%;
+  text-align: center;
+  max-width: 100%;
 }
 
 .days {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    list-style: none;
-    /* gap: 10px; */
-    /* border: 1px solid black; */
-    
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  list-style: none;
+  /* gap: 10px; */
+  /* border: 1px solid black; */
 }
 
 .days li {
-    border: 1px solid black;
-    /* border-right: 1px solid black; */
-    /* margin-left: 5px; */
-    /* padding-right: 10px; */
-    min-width: 50px;
-    min-height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  border: 1px solid black;
+  /* border-right: 1px solid black; */
+  /* margin-left: 5px; */
+  /* padding-right: 10px; */
+  min-width: 50px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .show-day {
-    background-color: yellow;
+  background-color: yellow;
 }
 
 #asterisks {
-    text-align: center;
+  text-align: center;
 }
 
 #nearby-places {
-    text-align: left;
-    font-size: 25px;
-    margin-left: 5px;
+  text-align: left;
+  font-size: 25px;
+  margin-left: 5px;
 }
 
 .single-place {
@@ -140,8 +139,8 @@
 }
 
 .single-place-picture {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 .single-place-vicinity {
@@ -152,6 +151,6 @@
 }
 
 .all-places {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }

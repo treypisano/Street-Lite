@@ -16,6 +16,7 @@ if (process.env.NODE_ENV !== "production") {
   window.updateEvent = updateEvent;
   window.deleteEvent = deleteEvent;
   window.createComment = createComment;
+  window.deleteComment = deleteComment;
 }
 function Root() {
   return (

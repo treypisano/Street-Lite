@@ -18,16 +18,17 @@ const CommentIndex = () => {
 
   return (
     <div>
-      <h2>Comments</h2>
       {Object.keys(comments).length === 0 ? (
         <p>No comments yet.</p>
       ) : (
         <ul>
-          {Object.keys(comments).map((commentId) => (
-            <li key={commentId}>
-              <CommentItem comment={comments[commentId]} />
-            </li>
-          ))}
+          {Object.keys(comments)
+            .reverse()
+            .map((commentId) => (
+              <li key={commentId}>
+                <CommentItem comment={comments[commentId]} />
+              </li>
+            ))}
         </ul>
       )}
     </div>
