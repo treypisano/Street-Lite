@@ -8,9 +8,14 @@ const CommentItem = ({ comment }) => {
   const [author, setAuthor] = useState();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const handleDelete = () => {
-    dispatch(deleteComment(comment._id));
+  const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleDelete = (e) => {
+    e.preventDefault();
+    dispatch(deleteComment(comment._id));
+    setIsDropdownOpen(false);
   };
 
   const fetchUserById = async (comment) => {
@@ -61,9 +66,7 @@ const CommentItem = ({ comment }) => {
         <h5>{author.username}</h5>
         <p>{comment.body}</p>
         <h6>{timeAgo}</h6>
-        <button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-          Options
-        </button>
+        <button onClick={toggleDropdown}>Options</button>
         {isDropdownOpen && <button onClick={handleDelete}>Delete</button>}
       </div>
     </div>
