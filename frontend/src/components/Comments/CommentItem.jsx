@@ -11,6 +11,8 @@ const CommentItem = ({ comment }) => {
 
   const [author, setAuthor] = useState();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editedBody, setEditedBody] = useState(comment.body);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -20,6 +22,18 @@ const CommentItem = ({ comment }) => {
     e.preventDefault();
     dispatch(deleteComment(comment._id));
     setIsDropdownOpen(false);
+  };
+
+  const handleUpdate = () => {
+    setIsEditing(true);
+  };
+
+  const handleSave = () => {
+    // Dispatch the updateComment action to save the edited comment
+    dispatch(updateComment(comment._id, { body: editedBody }));
+
+    // Exit the editing mode
+    setIsEditing(false);
   };
 
   useEffect(() => {
@@ -43,11 +57,13 @@ const CommentItem = ({ comment }) => {
       return author;
     }
   };
+
   useEffect(() => {
     fetchUserById(comment).then((user) => {
       setAuthor(user);
     });
   }, []);
+
   const commentCreatedAt = comment.createdAt;
   const currentTime = new Date();
   const createdAt = new Date(commentCreatedAt);
@@ -87,14 +103,14 @@ const CommentItem = ({ comment }) => {
             <h6>{timeAgo}</h6>
           </div>
           <div className="right-header">
-            {currentUser._id === author._id && (
+            {currentUser && currentUser._id === author._id && (
               <div className="event-dropdown-container" ref={dropdownRef}>
                 <button className="event-dropdown-btn" onClick={toggleDropdown}>
                   ...
                 </button>
                 {isDropdownOpen && (
                   <div className="event-dropdown-content">
-                    {/* <button onClick={handleUpdate}>Update</button> */}
+                    <button onClick={handleUpdate}>Update</button>
                     <button onClick={handleDelete}>Delete</button>
                   </div>
                 )}
@@ -102,9 +118,22 @@ const CommentItem = ({ comment }) => {
             )}
           </div>
         </div>
-        <p>{comment.body}</p>
+        {isEditing ? (
+          <div>
+            <textarea
+              value={editedBody}
+              onChange={(e) => setEditedBody(e.target.value)}
+              placeholder="Edit your comment..."
+              required
+            ></textarea>
+            <button onClick={handleSave}>Save</button>
+          </div>
+        ) : (
+          <p>{comment.body}</p>
+        )}
       </div>
     </div>
   );
 };
+
 export default CommentItem;

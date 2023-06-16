@@ -4,6 +4,7 @@ const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 const RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
 const REMOVE_COMMENT = "REMOVE_COMMENT";
 const CLEAR_COMMENTS = "CLEAR_COMMENT";
+const CHANGE_COMMENT = "CHANGE_COMMENT";
 
 export const receiveComment = (comment) => {
   return {
@@ -30,6 +31,13 @@ export const clearComments = () => {
   return {
     type: CLEAR_COMMENTS,
     payload: "destroying comments",
+  };
+};
+
+export const changeComment = (comment) => {
+  return {
+    type: CHANGE_COMMENT,
+    comment,
   };
 };
 
@@ -84,12 +92,12 @@ export const updateComment = (commentId, body) => async (dispatch) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ body }),
+      body: JSON.stringify(body),
     });
 
     if (res.ok) {
       const data = await res.json();
-      dispatch(receiveComment(data));
+      dispatch(changeComment(data));
     }
   } catch (error) {
     // Handle error
@@ -127,6 +135,13 @@ const commentsReducer = (state = [], action) => {
       return state.filter((comment) => comment._id !== commentIdToRemove);
     case CLEAR_COMMENTS:
       return {};
+    case CHANGE_COMMENT:
+      return state.map((comment) => {
+        if (comment._id === action.comment._id) {
+          return action.comment;
+        }
+        return comment;
+      });
     default:
       return state;
   }

@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
 });
 
 // Update a comment
-router.put("/comments/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { body } = req.body;
