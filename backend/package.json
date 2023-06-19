@@ -22,7 +22,8 @@
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
-    "proj4": "^2.9.0"
+    "proj4": "^2.9.0",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "dotenv-cli": "^7.2.1",
