@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Street-Lite is an application that informs users about public events and Open Streets in NYC. It utilizes the power of NYC Open Data APIs and Google Maps API to provide a plethora of information to the user.",
   "engines": {
-    "node": "16.x"
+    "node": "16.20.0"
   },
   "scripts": {
     "backend-install": "npm install --prefix backend",
