@@ -10,18 +10,32 @@ async function fetchAttends(eventId) {
     return attends
 }
 
+const fetchUserById = async (attend) => {
+    const res = await jwtFetch(`/api/users/author/${attend.userId}`);
+    if (res.ok) {
+      const author = await res.json();
+      return author;
+    }
+  };
+
 export default function AttendList() {
     const [attends, setAttends] = useState();
+    const [attendees, setAttendees] = useState([])
     const eventId = useParams();
     const userId = useSelector((state) => state.session?.user?._id);
-    debugger;
     useEffect(() => {
         fetchAttends(eventId.eventId)
             .then((attends) => {
-                console.log(attends)
-                attends.forEach(attend => console.log(attend.userId))
+                attends.forEach((attend) => {
+                    fetchUserById(attend).then((attend) => {
+                        console.log(attend.username)
+                        setAttendees(attendees.concat(attend.username)) 
+                    })
+                // console.log(attend.userId)
+                })
                 // setAttends(attends)
             })
+        // console.log(attendees)
     }, [])
 
 
@@ -34,9 +48,14 @@ export default function AttendList() {
     }
 
     return (
+        <>
         <div>
             <button onClick={handleAttending}>I am attending</button>
             {/* {attends && Object.values(attend).map((ele) => )} */}
         </div>
+        <div>
+            {attendees.map((atendee) => <div>{atendee}</div>)}
+        </div>
+        </>
     )
 }
