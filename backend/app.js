@@ -58,13 +58,15 @@ app.get(/^(?!\/?api).*/, (req, res) => {
   res.sendFile(path.resolve(__dirname, "../frontend", "build", "index.html"));
 });
 
+// Serve static React build files statically in production
 if (isProduction) {
-  // console.log("is production running!")
-  const path = require("path");
+  const path = require('path');
   // Serve the frontend's index.html file at the root route
-  app.get("/", (req, res) => {
-    res.cookie("CSRF-TOKEN", req.csrfToken());
-    res.sendFile(path.resolve(__dirname, "../frontend", "build", "index.html"));
+  app.get('/', (req, res) => {
+    res.cookie('CSRF-TOKEN', req.csrfToken());
+    res.sendFile(
+      path.resolve(__dirname, '../frontend', 'build', 'index.html')
+    );
   });
 
   // Serve the static assets in the frontend's build folder
@@ -72,8 +74,10 @@ if (isProduction) {
 
   // Serve the frontend's index.html file at all other routes NOT starting with /api
   app.get(/^(?!\/?api).*/, (req, res) => {
-    res.cookie("CSRF-TOKEN", req.csrfToken());
-    res.sendFile(path.resolve(__dirname, "../frontend", "build", "index.html"));
+    res.cookie('CSRF-TOKEN', req.csrfToken());
+    res.sendFile(
+      path.resolve(__dirname, '../frontend', 'build', 'index.html')
+    );
   });
 }
 
