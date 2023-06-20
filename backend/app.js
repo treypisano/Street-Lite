@@ -53,10 +53,10 @@ app.use("/api/events", eventRouter);
 app.use("/api/attend", attendRouter)
 app.use("/api/comments", commentRouter);
 
-app.get(/^(?!\/?api).*/, (req, res) => {
-  res.cookie("CSRF-TOKEN", req.csrfToken());
-  res.sendFile(path.resolve(__dirname, "../frontend", "build", "index.html"));
-});
+// app.get(/^(?!\/?api).*/, (req, res) => {
+//   res.cookie("CSRF-TOKEN", req.csrfToken());
+//   res.sendFile(path.resolve(__dirname, "../frontend", "build", "index.html"));
+// });
 
 // Serve static React build files statically in production
 if (isProduction) {
