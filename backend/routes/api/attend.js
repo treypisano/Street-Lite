@@ -10,7 +10,10 @@ router.get("/:id", async (req, res, next) => {
 })
 
 router.post("/", async (req, res, next) => {
-    
+    console.log(req.body)
+    const attend = new Attend({userId: req.body.userId, eventId: req.body.eventId})
+
+    await attend.save()
 })
 
 module.exports = router;
