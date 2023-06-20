@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import React, {useEffect, useState} from "react";
+import jwtFetch from '../../store/jwt';
 
 async function fetchAttends(eventId) {
     const response = await fetch(`/api/attend/${eventId}`, {method: 'GET'})
@@ -10,18 +11,31 @@ async function fetchAttends(eventId) {
 }
 
 export default function AttendList() {
-    const [attends, setAttends] = useState()
-    
+    const [attends, setAttends] = useState();
+    const eventId = useParams();
+    const userId = useSelector((state) => state.session?.user?._id);
+    debugger;
     useEffect(() => {
-        fetchAttends()
+        fetchAttends(eventId.eventId)
             .then((attends) => {
                 console.log(attends)
+                attends.forEach(attend => console.log(attend.userId))
                 // setAttends(attends)
             })
     }, [])
 
+
+
+    const handleAttending = () => {
+        jwtFetch('/api/attend/', {
+            method: 'POST',
+            body: JSON.stringify({userId: userId, eventId: eventId.eventId})
+        })
+    }
+
     return (
         <div>
+            <button onClick={handleAttending}>I am attending</button>
             {/* {attends && Object.values(attend).map((ele) => )} */}
         </div>
     )

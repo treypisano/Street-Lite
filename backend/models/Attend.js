@@ -3,12 +3,14 @@ const Schema = mongoose.Schema;
 
 const attendSchema = new Schema({
   userId: {
-    type: Schema.Types.ObjectId,
+    // type: Schema.Types.ObjectId,
+    type: String,
     ref: "User",
     required: true,
   },
   eventId: {
-    type: mongoose.Schema.Types.ObjectId,
+    // type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: "Event",
     required: true,
   },
