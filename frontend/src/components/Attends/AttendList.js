@@ -14,11 +14,12 @@ export default function AttendList() {
     const [attends, setAttends] = useState();
     const eventId = useParams();
     const userId = useSelector((state) => state.session?.user?._id);
-
+    debugger;
     useEffect(() => {
-        fetchAttends(eventId)
+        fetchAttends(eventId.eventId)
             .then((attends) => {
                 console.log(attends)
+                attends.forEach(attend => console.log(attend.userId))
                 // setAttends(attends)
             })
     }, [])
