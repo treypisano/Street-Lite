@@ -6,9 +6,9 @@ const BottomFooter = () => {
       <div className="bottom-footer">
         <ul className="bottom-footer-col">
           <h3 className='bottom-footer-title'>Trey Pisano</h3>
-          <li><a href="https://github.com/">GitHub</a></li>
-          <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
-          <li><a href="https://wellfound.com/">Wellfound</a></li>
+          <li><a href="https://github.com/treypisano">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/trey-pisano-1377a6227/">LinkedIn</a></li>
+          <li><a href="https://wellfound.com/u/trey-pisano">Wellfound</a></li>
         </ul>
         <ul className="bottom-footer-col">
           <h3 className='bottom-footer-title'>Harjit Singh</h3>
