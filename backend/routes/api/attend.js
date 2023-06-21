@@ -17,4 +17,9 @@ router.post("/", async (req, res, next) => {
     await attend.save()
 })
 
+router.delete("/:id", async (req, res, next) => {
+    const { id } = req.params;
+    await Attend.deleteOne({userId: id})
+})
+
 module.exports = router;
