@@ -19,7 +19,7 @@ const CommentIndex = () => {
   return (
     <div>
       {Object.keys(comments).length === 0 ? (
-        <p>No comments yet.</p>
+        <p>Be the first to leave a comment!</p>
       ) : (
         <ul>
           {Object.keys(comments)

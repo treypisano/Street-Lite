@@ -105,7 +105,7 @@ const CommentItem = ({ comment }) => {
         <div className="comment-header">
           <div className="left-header">
             <h5>{author.username}</h5>
-            <h6>{timeAgo}</h6>
+            <h6>{timeAgo} ago</h6>
             {isEdited && (
               <span className="edited-indicator">
                 <h6>(edited) </h6>

@@ -134,7 +134,7 @@ const EventShowPage = () => {
             </div>
             <h5>{currentEvent.location.mainStreet}</h5>
             <p>Between: {currentEvent.location.startStreet} & {currentEvent.location.endStreet}</p>
-            <div id="nearby-places">Nearby Places</div>
+            <div id="nearby-places">Nearby Restaurants</div>
             <div className="all-places">
               {listItems}
               <div id="map" style={{ display: "none" }}></div>
@@ -146,7 +146,7 @@ const EventShowPage = () => {
               <AttendList />
             </div>
             <div className="comments">
-              <h2>Comments</h2>
+              {/* <h2>What People are Saying</h2> */}
               <CommentForm />
               <CommentIndex />
             </div>
