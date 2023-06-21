@@ -12,18 +12,33 @@ async function fetchAttends(eventId) {
     return attends
 }
 
+
+
 export default function AttendList() {
     const [attends, setAttends] = useState();
+    const [userAttending, setUserAttending] = useState(false);
     const eventId = useParams();
     const userId = useSelector((state) => state.session?.user?._id);
+
+    function checkUserAttending(attends) {
+        for (let i = 0; i < attends.length; i++) {
+            const attend = attends[i]
+            if (attend.userId === userId)
+            {
+                return true
+            }
+        }
+        return false
+    }
     useEffect(() => {
         fetchAttends(eventId.eventId)
             .then((attends) => {
                 setAttends(attends)
+                setUserAttending(checkUserAttending(attends))
             })
     }, [])
 
-
+    // on page render, make a fetch to check that if the current user is attending this event
 
     const handleAttending = () => {
         jwtFetch('/api/attend/', {
@@ -31,15 +46,14 @@ export default function AttendList() {
             body: JSON.stringify({userId: userId, eventId: eventId.eventId})
         })
     }
-    console.log(attends)
-    // debugger
+
     return (
         <>
         <div>
             {
-                useLoggedIn() && <button onClick={handleAttending}>I am attending</button>
+                useLoggedIn() && !userAttending && <button onClick={handleAttending}>I am attending</button>
+                
             }
-            {/* {attends && Object.values(attend).map((ele) => )} */}
         </div>
         <div>
             {attends?.map((atendee) => { 

@@ -24,7 +24,6 @@ export default function AttendItem({ attend }) {
     if (!user) {
         return (<></>)
     }
-    debugger
     return (
         
         <div>{user.username}</div>
