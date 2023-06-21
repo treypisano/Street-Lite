@@ -15,6 +15,8 @@ import "./EventShow.css";
 import "./EventShow.css";
 import CommentForm from "../Comments/CommentForm";
 import CommentIndex from "../Comments/CommentsIndex";
+import locationicon from '../../images/location-dot-solid.svg';
+import calendaricon from '../../images/calendar-regular.svg';
 
 const capitalizeFirstLetter = (str) => {
   const words = str.split(" ");
@@ -121,16 +123,18 @@ const EventShowPage = () => {
         <h1>{capitalizeFirstLetter(currentEvent.location.mainStreet)}</h1>
         <div className="event-body">
           <div className="event-info">
-            <p>Event Days: </p>
+            <div className="eventday-subheading">
+              <img src={calendaricon} id="calendaricon"></img>
+              <h4>Event Days </h4>
+            </div>
             <EventCalendar />
-            <div id="asterisks">***</div>
-            <p>Main Street: {currentEvent.location.mainStreet}</p>
-            <div id="asterisks">***</div>
-            <p>Start Street: {currentEvent.location.startStreet}</p>
-            <div id="asterisks">***</div>
-            <p>End Street: {currentEvent.location.endStreet}</p>
-            <div id="asterisks">***</div>
-            <div id="nearby-places">Nearby Places</div>
+            <div className="eventlocation-subheading">
+              <img src={locationicon} id="locationicon"></img>
+              <h4>Location</h4>
+            </div>
+            <h5>{currentEvent.location.mainStreet}</h5>
+            <p>Between: {currentEvent.location.startStreet} & {currentEvent.location.endStreet}</p>
+            <div id="nearby-places">Nearby Restaurants</div>
             <div className="all-places">
               {listItems}
               <div id="map" style={{ display: "none" }}></div>
@@ -142,7 +146,7 @@ const EventShowPage = () => {
               <AttendList />
             </div>
             <div className="comments">
-              <h2>Comments</h2>
+              {/* <h2>What People are Saying</h2> */}
               <CommentForm />
               <CommentIndex />
             </div>

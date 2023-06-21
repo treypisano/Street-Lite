@@ -1,6 +1,6 @@
 .comment-container {
-  border-top: 2px solid #f1fa3b;
-  border-bottom: 2px solid #f1f435;
+  /* border-top: 2px solid #f1fa3b;
+  border-bottom: 2px solid #f1f435; */
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -80,7 +80,7 @@
 }
 
 .event-dropdown-content button:hover {
-  background-color: #f1f1f1;
+  background-color: #FDD34F;
 }
 
 .edit-textarea {

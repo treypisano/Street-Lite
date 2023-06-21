@@ -22,6 +22,7 @@
 
 .event-info p {
   font-weight: 500;
+  padding-bottom: 15px;
 }
 
 .event-users {
@@ -46,35 +47,83 @@
 .calendar {
   text-align: center;
   max-width: 100%;
+  padding-bottom: 20px;
+  /* box-shadow: 1px 5px #888888; */
+}
+
+#calendaricon {
+  height: 50px;
+  width: auto;
+}
+
+#locationicon {
+  height: 50px;
+  width: auto;
+}
+
+.eventday-subheading {
+  display: flex;
+  flex-direction: row;
+  /* align-items:last baseline; */
+  justify-content: center;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+
+.eventlocation-subheading {
+  display: flex;
+  flex-direction: row;
+  /* align-items:last baseline; */
+  justify-content: center;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+
+.event-show-page h4 {
+  margin-top: 15px;
+  font-weight: 750;
 }
 
 .days {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   list-style: none;
-  /* gap: 10px; */
   /* border: 1px solid black; */
+  /* box-shadow: 5px 10px #888888; */
+  /* width: 350px; */
 }
 
 .days li {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   /* border-right: 1px solid black; */
   /* margin-left: 5px; */
   /* padding-right: 10px; */
-  min-width: 50px;
-  min-height: 50px;
+  /* min-width: 50px;
+  min-height: 50px; */
   display: flex;
   align-items: center;
   justify-content: center;
+  /* background-color: white; */
+  /* box-shadow: 5px 10px #888888; */
 }
-
-.show-day {
-  background-color: yellow;
+.days>div{
+  min-height: 70px;
+  min-width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 5px 5px #888888be;
+  /* border-right: 1px solid black; */
+  border: 1px solid black;
+  font-size: 20px;
+  font-weight: 500;
 }
-
-#asterisks {
-  text-align: center;
+.days .show-day {
+  background-color: #FDD34F;
+  /* width: 100%; */
 }
 
 #nearby-places {
@@ -87,7 +136,6 @@
     text-align: start;
     border-bottom: rgb(172, 172, 172) solid 1px;
     height: 150px;
-    /* width: 100%; */
     color: white;
     text-shadow: -1px 2px 4px #000,
     1px 1px 2px #000,
