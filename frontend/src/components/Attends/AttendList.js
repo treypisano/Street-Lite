@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import React, {useEffect, useState} from "react";
 import jwtFetch from '../../store/jwt';
+import AttendItem from './AttendItem';
+import { useLoggedIn } from "../../util/ApiUtil";
 
 async function fetchAttends(eventId) {
     const response = await fetch(`/api/attend/${eventId}`, {method: 'GET'})
@@ -10,32 +12,15 @@ async function fetchAttends(eventId) {
     return attends
 }
 
-const fetchUserById = async (attend) => {
-    const res = await jwtFetch(`/api/users/author/${attend.userId}`);
-    if (res.ok) {
-      const author = await res.json();
-      return author;
-    }
-  };
-
 export default function AttendList() {
     const [attends, setAttends] = useState();
-    const [attendees, setAttendees] = useState([])
     const eventId = useParams();
     const userId = useSelector((state) => state.session?.user?._id);
     useEffect(() => {
         fetchAttends(eventId.eventId)
             .then((attends) => {
-                attends.forEach((attend) => {
-                    fetchUserById(attend).then((attend) => {
-                        console.log(attend.username)
-                        setAttendees(attendees.concat(attend.username)) 
-                    })
-                // console.log(attend.userId)
-                })
-                // setAttends(attends)
+                setAttends(attends)
             })
-        // console.log(attendees)
     }, [])
 
 
@@ -46,15 +31,20 @@ export default function AttendList() {
             body: JSON.stringify({userId: userId, eventId: eventId.eventId})
         })
     }
-
+    console.log(attends)
+    // debugger
     return (
         <>
         <div>
-            <button onClick={handleAttending}>I am attending</button>
+            {
+                useLoggedIn() && <button onClick={handleAttending}>I am attending</button>
+            }
             {/* {attends && Object.values(attend).map((ele) => )} */}
         </div>
         <div>
-            {attendees.map((atendee) => <div>{atendee}</div>)}
+            {attends?.map((atendee) => { 
+                return (<li key={atendee}><AttendItem attend={atendee}/></li>)
+            })}
         </div>
         </>
     )

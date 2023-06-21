@@ -9,7 +9,7 @@ const CommentItem = ({ comment }) => {
   const currentUser = useSelector((state) => state.session.user);
   const dropdownRef = useRef(null);
 
-  const [author, setAuthor] = useState();
+  const [author, setAuthor] = useState(); 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editedBody, setEditedBody] = useState(comment.body);

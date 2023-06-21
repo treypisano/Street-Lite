@@ -75,9 +75,7 @@ const EventShowPage = () => {
       //     setPlaces({places, ...results[i]}) ;
       // }'
       setPlaces(results);
-      console.log(results);
 
-      console.log(Object.values(results)[0].photos[0].getUrl());
     }
   }
   if (!isLoaded) {
