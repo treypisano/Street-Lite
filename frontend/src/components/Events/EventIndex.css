@@ -13,23 +13,29 @@
 
 #event-list-header {
     text-align: center;
+    font-weight: 750;
 }
 
 .google-map {
     width: 50%;
     height: 100%;
-    /* border: 1px dotted rgb(0, 8, 255); */
+    /* border: 5px dotted rgb(0, 8, 255); */
+    margin-right: 10px;
     text-align: center;
     position: sticky;
     top: 0;
-    height: calc(90vh - 60px); /* Adjust the height as needed */
+    height: 95vh;
 }
 
 .event-list-item {
     display: flex;
     flex-direction: column;
     padding: 2%;
-    border: 1px solid forestgreen;
+    border: 3px solid forestgreen;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 .event-list :hover {
