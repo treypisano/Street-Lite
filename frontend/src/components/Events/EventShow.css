@@ -22,6 +22,7 @@
 
 .event-info p {
   font-weight: 500;
+  padding-bottom: 15px;
 }
 
 .event-users {
@@ -46,6 +47,40 @@
 .calendar {
   text-align: center;
   max-width: 100%;
+  padding-bottom: 20px;
+  /* box-shadow: 1px 5px #888888; */
+}
+
+#calendaricon {
+  height: 50px;
+  width: auto;
+}
+
+#locationicon {
+  height: 50px;
+  width: auto;
+}
+
+.eventday-subheading {
+  display: flex;
+  flex-direction: row;
+  /* align-items:last baseline; */
+  justify-content: center;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+
+.eventlocation-subheading {
+  display: flex;
+  flex-direction: row;
+  /* align-items:last baseline; */
+  justify-content: center;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+
+.event-show-page h4 {
+  margin-top: 15px;
 }
 
 .days {
@@ -70,11 +105,7 @@
 }
 
 .show-day {
-  background-color: yellow;
-}
-
-#asterisks {
-  text-align: center;
+  background-color: #FDD34F;
 }
 
 #nearby-places {
@@ -87,7 +118,6 @@
     text-align: start;
     border-bottom: rgb(172, 172, 172) solid 1px;
     height: 150px;
-    /* width: 100%; */
     color: white;
     text-shadow: -1px 2px 4px #000,
     1px 1px 2px #000,

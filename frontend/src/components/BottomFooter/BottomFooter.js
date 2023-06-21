@@ -16,7 +16,7 @@ const BottomFooter = () => {
           <h3 className='bottom-footer-title'>Harjit Singh</h3>
           <li><a href="https://github.com/harjitsingh2">GitHub</a></li>
           <li><a href="https://www.linkedin.com/harjitsingh2">LinkedIn</a></li>
-          <li><a href="https://wellfound.com/">Wellfound</a></li>
+          <li><a href="https://wellfound.com/u/harjitsingh2">Wellfound</a></li>
         </ul>
         <ul className="bottom-footer-col">
           <h3 className="bottom-footer-title">Arvid Hossain</h3>

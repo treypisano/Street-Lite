@@ -4,6 +4,7 @@ import React, {useEffect} from "react";
 import { fetchOpenStreet } from "../../store/openstreets";
 import { clearEvents } from "../../store/openstreets";
 import './EventShow.css';
+import './EventShow.css';
 
 const EventCalendar = () => {
     const dispatch = useDispatch()
