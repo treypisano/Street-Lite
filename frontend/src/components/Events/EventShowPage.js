@@ -140,7 +140,7 @@ const EventShowPage = () => {
           </div>
           <div className="event-users">
             <div className="attendees">
-              Attendees
+              <h4>Who is going?</h4>
               <AttendList />
             </div>
             <div className="comments">

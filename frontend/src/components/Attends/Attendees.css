@@ -1,0 +1,68 @@
+.attending-button-container {
+    margin-top: 20px;
+    overflow: scroll;
+}
+
+.attending-button {
+    appearance: none;
+  background-color: #88C659;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  touch-action: manipulation;
+  width: 50%;
+  will-change: transform;
+}
+
+.attending-button:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    /* transform: translateY(-1px); */
+    background-color: #FDD34F;
+    color: black;
+}
+
+.attending-list {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 20px;
+    gap: 10px;
+}
+
+.each-attendee {
+    display: flex;
+    flex-direction: row;
+    /* gap: 5px; */
+    /* align-items: baseline; */
+}
+
+#attendee-lamp {
+    /* display: flex;
+    flex-direction: row; */
+    /* list-style-image: url('../../../public/1.png'); */
+    /* font-size: 50%; */
+    /* list-style: none; */
+    max-height: 50px;
+    /* margin-bottom: 5px; */
+}
+
+#attendee-name {
+    font-size: 30px;
+    margin-top: 12px;
+}
