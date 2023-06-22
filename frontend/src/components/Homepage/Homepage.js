@@ -74,10 +74,10 @@ function Homepage() {
               <img src={img3} className="carousel-image" alt="" />
           </div> */}
           <div className="pic-container">
-            <img src={img4} className="carousel-image" alt="" />
+            <img src={img5} className="carousel-image" alt="" />
           </div>
           <div className="pic-container">
-            <img src={img5} className="carousel-image" alt="" />
+            <img src={img4} className="carousel-image" alt="" />
           </div>
           <div className="pic-container">
             <img src={img6} className="carousel-image" alt="" />
