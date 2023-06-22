@@ -5,6 +5,8 @@ const bcrypt = require("bcryptjs");
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const passport = require("passport");
+const validateRegisterInput = require('../../validations/register');
+const validateLoginInput = require('../../validations/login');
 const { loginUser, restoreUser } = require("../../config/passport");
 const { isProduction } = require("../../config/keys");
 
@@ -28,23 +30,7 @@ router.get("/author/:id", async (req, res, next) => {
   }
 });
 
-router.post(
-  "/register",
-  // [
-  //   check('email')
-  //     .isEmail()
-  //     .withMessage('Invalid email address'),
-  //   check('password')
-  //     .isLength({ min: 6 })
-  //     .withMessage('Password must be at least 6 characters long'),
-  // ],
-  async (req, res, next) => {
-    // const errors = validationResult(req);
-    // if (!errors.isEmpty()) {
-    //   const err = new Error('Validation Error');
-    //   err.statusCode = 400;
-    //   err.errors = errors.mapped();
-    //   return next(err);}
+router.post("/register", validateRegisterInput, async (req, res, next) => {
 
     const user = await User.findOne({
       $or: [{ email: req.body.email }, { username: req.body.username }],
@@ -91,7 +77,7 @@ router.post(
 );
 
 // POST /api/users/login
-router.post("/login", async (req, res, next) => {
+router.post("/login", validateLoginInput, async (req, res, next) => {
   passport.authenticate("local", async function (err, user) {
     if (err) return next(err);
     if (!user) {
