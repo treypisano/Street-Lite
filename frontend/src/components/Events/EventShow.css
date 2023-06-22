@@ -31,12 +31,12 @@
   width: 50%;
   gap: 20px;
   text-align: center;
-  
+
 }
 
 .attendees {
   height: 30%;
-  border: 1px dotted rgb(0, 8, 255);
+  /* border: 1px dotted rgb(0, 8, 255); */
 }
 
 .comments {
