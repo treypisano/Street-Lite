@@ -1,6 +1,8 @@
 # street_lite
 
-**street_lite** is an application that informs users about public events and Open Streets in NYC. It utilizes the power of NYC Open Data APIs and Google Maps API to provide a plethora of information to the user. 
+**street_lite** is an application that keeps users up-to-date with public events held on street closures in NYC. It utilizes the power of NYC Open Data API and Google Maps API to provide users users with the information they need to attend an event near them. 
+
+[Visit the Live Site!](https://street-lite-cnp7.onrender.com/)
 
 ![image](frontend/src/images/street_lite_splash.png)
 
