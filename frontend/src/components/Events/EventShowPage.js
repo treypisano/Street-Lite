@@ -17,6 +17,7 @@ import CommentForm from "../Comments/CommentForm";
 import CommentIndex from "../Comments/CommentsIndex";
 import locationicon from '../../images/location-dot-solid.svg';
 import calendaricon from '../../images/calendar-regular.svg';
+import { useLoggedIn } from "../../util/ApiUtil";
 
 const capitalizeFirstLetter = (str) => {
   const words = str.split(" ");
@@ -36,7 +37,7 @@ const EventShowPage = () => {
   const currentEvent = useSelector((state) => state.openStreet[0]);
   const mapRef = useRef(null);
   const history = useHistory();
-
+  const loggedIn = useLoggedIn();
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_TREY_GOOGLE_API_KEY,
     libraries: ["places"],
@@ -144,10 +145,15 @@ const EventShowPage = () => {
               <AttendList />
             </div>
             <div className="comments">
-              {/* <h2>What People are Saying</h2> */}
+            {loggedIn ? (
               <CommentForm />
-              <CommentIndex />
-            </div>
+            ) : (
+              <button className="comment-login" onClick={() => history.push("/login")}>
+                Log in to Comment
+              </button>
+            )}
+            <CommentIndex />
+          </div>
           </div>
         </div>
       </div>
