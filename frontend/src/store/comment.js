@@ -78,7 +78,7 @@ export const createComment = (data) => async (dispatch) => {
     dispatch(receiveComment(comment));
   } catch (err) {
     const resBody = await err.json();
-    console.log(resBody);
+    // console.log(resBody);
     //   if (resBody.statusCode === 400) {
     //     return dispatch(receiveErrors(resBody.errors));
     //   }

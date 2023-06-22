@@ -4,13 +4,22 @@ const mongoose = require("mongoose");
 const Attend = mongoose.model("Attend");
 
 router.get("/:id", async (req, res, next) => {
-    Attend.find({postId: req.id})
-        .then(events => res.json(events))
-        .catch((err) => res.status(400).json({ error: err.message }));
+    const { id } = req.params;
+
+    const attend = await Attend.find({eventId: id})
+
+    res.json(attend)
 })
 
 router.post("/", async (req, res, next) => {
-    
+    const attend = new Attend({userId: req.body.userId, eventId: req.body.eventId})
+
+    await attend.save()
+})
+
+router.delete("/:id", async (req, res, next) => {
+    const { id } = req.params;
+    await Attend.deleteOne({userId: id})
 })
 
 module.exports = router;
