@@ -17,7 +17,9 @@ export default function AttendList() {
     const [userAttending, setUserAttending] = useState(true);
     const eventId = useParams();
     const userId = useSelector((state) => state.session?.user?._id);
+    const currentUser = useSelector((state) => state.session?.user);
 
+    console.log(attends)
     function checkUserAttending(attends) {
         for (let i = 0; i < attends.length; i++) {
             const attend = attends[i]
@@ -35,7 +37,7 @@ export default function AttendList() {
                 setAttends(attends)
                 setUserAttending(checkUserAttending(attends))
             })
-    }, [userAttending])
+    }, [])
 
     // on page render, make a fetch to check that if the current user is attending this event
 
@@ -54,7 +56,7 @@ export default function AttendList() {
         const attendPromise = jwtFetch(`/api/attend/${userId}`, { // when clicked, fetch attends
             method: 'DELETE',
         })
-        // setAttends([...attends, {userId: userId, eventId: eventId.eventId}]) 
+        setAttends(attends.filter((attend) => attend.userId !== userId)) 
     }
 
     return (
@@ -69,7 +71,7 @@ export default function AttendList() {
         </div>
         <div>
             {attends?.map((atendee) => { 
-                return (<li key={atendee}><AttendItem attend={atendee}/></li>)
+                return (<li key={atendee}><AttendItem attend={atendee} loadedUser={ currentUser }/></li>)
             })}
         </div>
         </>

@@ -3,7 +3,7 @@ import jwtFetch from '../../store/jwt';
 
 
 
-export default function AttendItem({ attend }) {
+export default function AttendItem({ attend, loadedUser }) {
     const [user, setUser] = useState();
 
     const fetchUserById = async (attend) => { // Make this into fell ALL users, then use the promise it returns and push that to state ONCE
@@ -13,19 +13,20 @@ export default function AttendItem({ attend }) {
             return user;
         }
     };
-
+    
     useEffect(() => {
+        if (loadedUser?._id !== attend.userId) {
         fetchUserById(attend)
             .then((user) => setUser(user))
+        } else {
+            setUser(loadedUser)
+        }
     }, [])
-
-    
 
     if (!user) {
         return (<></>)
     }
     return (
-        
         <div>{user.username}</div>
     )
 }
