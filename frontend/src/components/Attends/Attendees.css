@@ -1,12 +1,12 @@
 .attending-button-container {
     margin-top: 20px;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 
 .attending-button {
     appearance: none;
   background-color: #88C659;
-  border: 2px solid #1A1A1A;
+  /* border: 2px solid #1A1A1A; */
   border-radius: 15px;
   box-sizing: border-box;
   color: #FFFFFF;
