@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { signup, clearSessionErrors } from '../../store/session';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './Forms.css';
+import { useLoggedIn } from '../../util/ApiUtil';
 
 function SignupForm() {
   const [email, setEmail] = useState('');
@@ -11,6 +12,7 @@ function SignupForm() {
   const [password2, setPassword2] = useState('');
   const errors = useSelector(state => state.errors);
   const dispatch = useDispatch();
+  const history = useHistory()
 
   useEffect(() => {
     return () => {
@@ -51,6 +53,8 @@ function SignupForm() {
 
     dispatch(signup(user));
   };
+
+  if (useLoggedIn()) {history.push("/")} // when logged in, redirect
 
   return (
     <div className="session-form">
