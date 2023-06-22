@@ -100,7 +100,7 @@ const EventShowPage = () => {
     }
 
     return (
-      <div className="single-place">
+      <div className="single-place" key={place.name}>
         <div className="single-place-text">
           <div className="single-place-name">{place.name}</div>
           <div className="single-place-rating">

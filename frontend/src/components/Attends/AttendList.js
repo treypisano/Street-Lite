@@ -19,7 +19,7 @@ export default function AttendList() {
     const userId = useSelector((state) => state.session?.user?._id);
     const currentUser = useSelector((state) => state.session?.user);
 
-    console.log(attends)
+
     function checkUserAttending(attends) {
         for (let i = 0; i < attends.length; i++) {
             const attend = attends[i]
