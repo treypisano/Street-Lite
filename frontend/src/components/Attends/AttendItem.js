@@ -15,12 +15,12 @@ export default function AttendItem({ attend, loadedUser }) {
     };
     
     useEffect(() => {
-        if (loadedUser?._id !== attend.userId) {
+        // if (loadedUser?._id !== attend.userId) {
         fetchUserById(attend)
             .then((user) => setUser(user))
-        } else {
-            setUser(loadedUser)
-        }
+        // } else {
+        //     setUser(loadedUser)
+        // }
     }, [])
 
     if (!user) {

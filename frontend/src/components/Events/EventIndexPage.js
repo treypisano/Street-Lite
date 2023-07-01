@@ -7,8 +7,11 @@ function EventIndexPage() {
         <div className="event-index">
             <div className="list-and-map">
                 <EventList />
-                <div className="google-map">
-                       < StreetMap />
+                <div className="map-wrapper">
+                    <div>Check out some Open Streets!</div>
+                    <div className="google-map">
+                        < StreetMap />
+                    </div>
                 </div>
             </div>
         </div>

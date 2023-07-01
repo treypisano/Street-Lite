@@ -14,7 +14,7 @@ function EventList() {
 
   return (
     <div className="event-list">
-      <h2 id="event-list-header">Events</h2>
+      <h2 id="event-list-header">Open Streets Near You!</h2>
       {Object.values(events).slice(0, 20).map((event, i) => (
         <EventListItem key={i} event={event} />
       ))}
