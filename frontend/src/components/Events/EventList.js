@@ -12,7 +12,6 @@ function EventList() {
 
   // Make a state of whether a boro has been clicked or no
   // If it is, dont display the default events, display the specific events
-console.log("RUNNING EVENT LSIT")
   useEffect(() => {
     dispatch(fetchOpenStreets());
   }, [dispatch]);

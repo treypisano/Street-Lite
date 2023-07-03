@@ -14,11 +14,17 @@
 }
 
 .event-location {
+  text-align: right;
   font-size: 15px;
   font-weight: 600;
 }
 
+.event-location > * {
+  margin-bottom: 0px;
+}
+
 .event-dates {
+  display: flex;
   font-size: 12px;
 }
 
@@ -36,4 +42,24 @@
 .borough-info-name {
   font-weight: 600;
   font-size: 17px;
+}
+
+#from-to {
+  font-weight: 400;
+  font-size: .9em;
+}
+
+.day-tag {
+  margin-right: 10px;
+  margin-bottom: 0px;
+  padding: 5px;
+  background-color: #88c659;
+  color: azure;
+  border-radius: 10px;
+}
+
+#street-closed {
+  font-weight: 400;
+  font-size: .5em;
+  margin-bottom: 5px;
 }
