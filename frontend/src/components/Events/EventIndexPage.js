@@ -13,7 +13,7 @@ function EventIndexPage() {
                 <EventList />
                 <div className="map-wrapper">
                     <div id="map-info">
-                        <p>Click a lamp to see more details about an Open Street!</p>
+                        <p>Click a lamp to see more details!</p>
                     </div>
                     <p id="what-open-street">What is an Open Street?</p>
                     <BoroughInfo />
