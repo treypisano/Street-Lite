@@ -36,6 +36,9 @@ const eventSchema = new Schema(
         type: String,
         required: true,
       },
+      borough: {
+        type: String,
+      }
     },
     user: {
       type: Schema.Types.ObjectId,

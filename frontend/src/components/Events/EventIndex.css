@@ -5,27 +5,60 @@
     width: 100%;
 }
 
+.list {
+    display: flex;
+    flex-direction: column;
+}
 
 .event-list {
     width: 50%;
-    /* border: 1px dotted red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid rgb(198, 197, 197);
 }
 
 #event-list-header {
+    margin-top: 20px;
     text-align: center;
     font-weight: 750;
 }
 
+#event-list-header:hover {
+    background-color: inherit;
+}
+
 .google-map {
-    width: 80%;
-    height: 80%;
+    width: 100%;
     /* border: 5px dotted rgb(0, 8, 255); */
     margin-right: 10px;
-    margin-top: 20px;
     text-align: center;
     position: sticky;
     top: 0;
     height: 95vh;
+    padding: 0px;
+}
+
+#map-info {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.boros {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgb(198, 197, 197);
+}
+
+.boros > * {
+    margin-left: 8px;
+}
+
+.total-events {
+    font-weight: 400;
+    
 }
 
 .map-wrapper {
@@ -33,6 +66,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 5px;
     width: 50%;
     height: 100%;
 }
@@ -41,7 +75,7 @@
     display: flex;
     flex-direction: column;
     padding: 2%;
-    border: 3px solid forestgreen;
+    border: 1px solid forestgreen;
     margin-left: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
@@ -49,6 +83,10 @@
     color: rgb(86, 86, 86);
 }
 
-.event-list :hover {
-    background-color: rgb(227, 227, 227);
+.borough-info {
+    display: flex;
+}
+
+.single-borough {
+    margin-left: 8px;
 }

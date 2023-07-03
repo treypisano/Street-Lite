@@ -42,7 +42,8 @@ router.post("/", async (req, res, next) => {
                 endStreet: currentEvent.apprtostre,
                 mainStreet: currentEvent.appronstre,
                 latitude: coordinates[0],
-                longitude: coordinates[1]
+                longitude: coordinates[1],
+                borough: currentEvent.boroughname
             }
         })
 

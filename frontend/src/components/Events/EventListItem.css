@@ -1,6 +1,12 @@
 .event-list-item {
     font-size: 25px;
+    width: 75%;
+    margin-top: 10px;
   }
+
+.event-list-item:hover {
+  background-color: rgb(227, 227, 227);
+}
 
   .event-link {
     text-decoration: none;
