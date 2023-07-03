@@ -15,6 +15,7 @@ function EventIndexPage() {
                     <div id="map-info">
                         <p>Click a lamp to see more details about an Open Street!</p>
                     </div>
+                    <p id="what-open-street">What is an Open Street?</p>
                     <BoroughInfo />
                     <div className="google-map">
                         < StreetMap />

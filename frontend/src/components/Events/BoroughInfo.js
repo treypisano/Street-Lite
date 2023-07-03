@@ -22,7 +22,7 @@ export default function BoroughInfo() {
         for(const boroughName in boroughObj) {
             displayArray.push(
             <div className="single-borough">
-                <p >{boroughName}</p>
+                <p className="borough-info-name">{boroughName}</p>
                 <p>{boroughObj[boroughName]}</p>
             </div>)
         }

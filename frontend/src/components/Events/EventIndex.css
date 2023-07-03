@@ -42,7 +42,11 @@
 #map-info {
     font-size: 20px;
     font-weight: 500;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    padding-top: 10px;
+    border-bottom: 1px solid rgb(198, 197, 197);
+    border-top: 1px solid rgb(198, 197, 197);
 }
 
 .boros {
@@ -85,8 +89,22 @@
 
 .borough-info {
     display: flex;
+    text-align: center;
 }
 
 .single-borough {
-    margin-left: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    /* margin-left: 10px; */
+    /* border: solid rgb(197, 197, 197) 1px; */
+    /* border-radius: 10px; */
+}
+
+#what-open-street {
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+#what-open-street:hover {
+    cursor: pointer;
 }
