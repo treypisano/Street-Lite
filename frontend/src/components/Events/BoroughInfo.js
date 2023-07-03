@@ -6,8 +6,8 @@ export default function BoroughInfo() {
         "Brooklyn": 0,
         "Bronx": 0,
         "Manhattan": 0,
-        "Staten Island": 0,
-        "Queens": 0
+        "Queens": 0,
+        "Staten Island": 0
     }
 
     if (openStreets) {
