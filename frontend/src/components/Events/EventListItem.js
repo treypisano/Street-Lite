@@ -12,7 +12,7 @@ const EventListItem = ({ event }) => {
     <div className="event-list-item" key={event._id}>
       <div className="event-link">
         <Link to={`/events/${event._id}`} className="link">
-          {event.location.mainStreet}
+          {capitalizeFirstLetter(event.location.mainStreet)}
         </Link>
       </div>
       <div className="event-location">

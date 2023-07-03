@@ -8,6 +8,8 @@ const bcrypt = require("bcryptjs");
 const { isProduction } = require("./config/keys");
 require("./models/User");
 require("./models/Attend");
+require("./models/Comment");
+require("./models/Event");
 require("./config/passport");
 const passport = require("passport");
 const openStreetsRouter = require("./routes/api/openStreets");

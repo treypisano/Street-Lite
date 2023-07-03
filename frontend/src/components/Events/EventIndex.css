@@ -5,39 +5,120 @@
     width: 100%;
 }
 
+.list {
+    display: flex;
+    flex-direction: column;
+}
 
 .event-list {
     width: 50%;
-    /* border: 1px dotted red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #event-list-header {
+    margin-top: 20px;
     text-align: center;
     font-weight: 750;
+    padding-bottom: 5px;
+
+}
+
+#event-list-header:hover {
+    background-color: inherit;
 }
 
 .google-map {
-    width: 50%;
-    height: 100%;
-    /* border: 5px dotted rgb(0, 8, 255); */
+    width: 100%;
     margin-right: 10px;
     text-align: center;
     position: sticky;
     top: 0;
     height: 95vh;
+    padding: 0px;
+}
+
+#map-info {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    margin-top: 30px;
+    padding-top: 10px;
+    border-bottom: 1px solid rgb(227, 227, 227);
+    /* border-top: 1px solid rgb(227, 227, 227); */
+}
+
+.boros {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid rgb(227, 227, 227);
+}
+
+.boros > * {
+    margin-left: 8px;
+}
+
+.total-events {
+    font-weight: 400;
+    border-bottom: 1px solid rgb(227, 227, 227);
+}
+
+.map-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    width: 50%;
+    height: 100%;
 }
 
 .event-list-item {
     display: flex;
     flex-direction: column;
     padding: 2%;
-    border: 3px solid forestgreen;
+    border: 1px solid forestgreen;
     margin-left: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+    color: rgb(86, 86, 86);
 }
 
-.event-list :hover {
-    background-color: rgb(227, 227, 227);
+.borough-info {
+    display: flex;
+    text-align: center;
+}
+
+.single-borough {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+    border-right: 1px solid rgb(227, 227, 227);
+
+    /* margin-left: 10px; */
+    /* border: solid rgb(197, 197, 197) 1px; */
+    /* border-radius: 10px; */
+}
+
+
+.single-borough:nth-child(1) { 
+    border-left: 1px solid rgb(227, 227, 227);
+}
+
+/* .single-borough:nth-child(4) {
+    border-left: 1px solid rgb(227, 227, 227);
+
+} */
+
+#what-open-street {
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+#what-open-street:hover {
+    cursor: pointer;
 }

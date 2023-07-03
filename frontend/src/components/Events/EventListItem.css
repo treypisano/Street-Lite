@@ -1,29 +1,39 @@
 .event-list-item {
     font-size: 25px;
+    width: 75%;
+    margin-top: 10px;
   }
 
-  .event-link {
-    text-decoration: none;
-    font-weight: 700;
-  }
+.event-list-item:hover {
+  background-color: rgb(227, 227, 227);
+}
 
-  .event-location {
-    font-size: 15px;
-    font-weight: 600;
-  }
+.event-link {
+  text-decoration: none;
+  font-weight: 700;
+}
 
-  .event-dates {
-    font-size: 12px;
-  }
+.event-location {
+  font-size: 15px;
+  font-weight: 600;
+}
 
-  .link {
-    text-decoration: none;
-    color: black;
-    font-weight: 700;
-    transition: color 0.3s ease;
-  }
+.event-dates {
+  font-size: 12px;
+}
 
-  .link:hover {
-    color: #88c659;
-  }
+.link {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #88c659;
+}
   
+.borough-info-name {
+  font-weight: 600;
+  font-size: 17px;
+}

@@ -41,7 +41,13 @@ export default function AttendList() {
             })
     }, [])
 
+    console.log(attends)
+
     // on page render, make a fetch to check that if the current user is attending this event
+
+    // Need backend custom validations, that way the user cant do this thing twice
+    // Then, also could send a response on delete and create from the backend
+    // ONLY act on this response if it is valid, if it is, then add that to the state
 
     const handleAttending = () => {
         setUserAttending(true)
@@ -50,6 +56,7 @@ export default function AttendList() {
             body: JSON.stringify({userId: userId, eventId: eventId.eventId})
         })
         setAttends([...attends, {userId: userId, eventId: eventId.eventId}]) 
+        // This should take a response from the server
         // Change the attends state varaiable and add the user to it in the state
     }
 
@@ -59,6 +66,8 @@ export default function AttendList() {
             method: 'DELETE',
         })
         setAttends(attends.filter((attend) => attend.userId !== userId)) 
+        // To fix bug of duplicates, need to send a response back from the server
+        // This will tell the server that the stuff went thru in the backend
     }
 
     return (

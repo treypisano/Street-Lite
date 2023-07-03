@@ -5,9 +5,7 @@
     top: 0px;
     padding: 1%;
     height: 100px;
-    /* background-color: #59b7c6; */
-    /* background-image: linear-gradient(to right, white, #75625e); */
-    /* background-image: linear-gradient(to right, white, #FDD34F, #88C659); */
+    border-bottom: rgb(227, 227, 227) 1px solid;
 }
 
 
