@@ -13,11 +13,11 @@ function EventIndexPage() {
             <div className="list-and-map">
                 <EventList />
                 <div className="map-wrapper">
-                    <p id="what-open-street">What is an Open Street?</p>
                     {/* <div id="map-info">
                         <p>Click a <img src={mapMarker} id="logo-in-text"/> to see more details!</p>
                     </div> */}
                     <BoroughInfo />
+                    <p id="what-open-street">What is an Open Street?</p>
                     <div className="google-map">
                         < StreetMap />
                     </div>
