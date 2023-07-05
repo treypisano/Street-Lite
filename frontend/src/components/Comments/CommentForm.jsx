@@ -38,7 +38,7 @@ const CommentForm = () => {
         onChange={(e) => setBody(e.target.value)}
         placeholder="Share your thoughts about the event!"
       ></textarea>
-      <button type="submit">Submit</button>
+      <button type="submit">Post Comment</button>
     </form>
   );
 };
