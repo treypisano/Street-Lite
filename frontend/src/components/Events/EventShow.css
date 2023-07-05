@@ -35,7 +35,8 @@
 }
 
 .attendees {
-  height: 30%;
+  max-height: 30%;
+  overflow: scroll;
   /* border: 1px dotted rgb(0, 8, 255); */
 }
 
