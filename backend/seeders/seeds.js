@@ -9,8 +9,8 @@ const { faker } = require('@faker-js/faker');
 
 const NUM_SEED_USERS = 100;
 const NUM_SEED_EVENTS = 100
-const NUM_SEED_ATTENDS = 3000;
-const NUM_SEED_COMMENTS = 3000;
+const NUM_SEED_ATTENDS = 1000;
+const NUM_SEED_COMMENTS = 1000;
 
 // Create users
 const users = [];
@@ -64,6 +64,7 @@ async function findAllEvents() {
 
       console.log("Resetting db and seeding users and comments...");
         User.collection.drop()
+        .then(() => Attend.collection.drop())   
         .then(() => Comment.collection.drop())
         .then(() => User.insertMany(users))
         .then(() => Comment.insertMany(comments))
