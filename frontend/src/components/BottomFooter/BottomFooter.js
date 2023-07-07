@@ -45,7 +45,7 @@ const BottomFooter = () => {
                 </a>
               </li>
               <li>
-                <a href="https://www.linkedin.com/harjitsingh2">
+                <a href="https://www.linkedin.com/in/harjitsingh2">
                   <img src={linkedinLogo} alt="LinkedIn" className="logo" />
                 </a>
               </li>

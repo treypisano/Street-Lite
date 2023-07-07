@@ -23,7 +23,7 @@ const EventListItem = ({ event }) => {
         <Link to={`/events/${event._id}`} className="link">
           {capitalizeFirstLetter(event.location.mainStreet)}
         </Link>
-        <p id="street-closed">Street Closed:</p>
+        <p id="street-closed">Street Open:</p>
         <div className="event-dates">
           {daysAsPTags(days)}</div>
       </div>

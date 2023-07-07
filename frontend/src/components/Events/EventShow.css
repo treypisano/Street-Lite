@@ -35,15 +35,21 @@
 }
 
 .attendees {
-  height: 30%;
+  max-height: 30%;
+  overflow: scroll;
   /* border: 1px dotted rgb(0, 8, 255); */
 }
 
 .comments {
-  height: 70%;
+  max-height: 70%;
+  overflow: scroll;
+  border: 1px solid forestgreen;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+  color: rgb(86, 86, 86);
+  padding: 10px;
   /* border: 1px dotted rgb(0, 255, 115); */
-  background-image: url(../../images/blank-paper.jpg);
-  margin-bottom: 13px;
+  /* background-image: url(../../images/blank-paper.jpg); */
+  /* margin-bottom 13px; */
 }
 
 .calendar {
@@ -206,8 +212,15 @@
   flex-direction: column;
 }
 
+.comments {
+  padding-top: 20px;
+  padding-right: 40px;
+  /* padding-left: 20px; */
+}
+
 .comment-login {
   margin-top: 20px;
+  margin-bottom: 20px;
   background-color: #88C659;
   padding: 2%;
   border-radius: 10px;

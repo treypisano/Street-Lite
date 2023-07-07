@@ -124,12 +124,12 @@ const EventShowPage = () => {
           <div className="event-info">
             <div className="eventday-subheading">
               <img src={calendaricon} id="calendaricon"></img>
-              <h4>Event Days </h4>
+              <h4>Street Closure Days </h4>
             </div>
             <EventCalendar />
             <div className="eventlocation-subheading">
               <img src={locationicon} id="locationicon"></img>
-              <h4>Location</h4>
+              <h4>Open Street Location</h4>
             </div>
             <h5>{currentEvent.location.mainStreet}</h5>
             <p>Between: {currentEvent.location.startStreet} & {currentEvent.location.endStreet}</p>
@@ -145,15 +145,16 @@ const EventShowPage = () => {
               <AttendList />
             </div>
             <div className="comments">
-            {loggedIn ? (
-              <CommentForm />
-            ) : (
-              <button className="comment-login" onClick={() => history.push("/login")}>
-                Log in to Comment
-              </button>
-            )}
-            <CommentIndex />
-          </div>
+              <CommentIndex />
+              {loggedIn ? (
+                <CommentForm />
+              ) : (
+                <button className="comment-login" onClick={() => history.push("/login")}>
+                  Log in to Comment
+                </button>
+              )}
+              {/* <CommentIndex /> */}
+            </div>
           </div>
         </div>
       </div>

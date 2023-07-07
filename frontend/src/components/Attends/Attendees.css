@@ -1,5 +1,6 @@
 .attending-button-container {
     margin-top: 20px;
+    max-height: 30%;
     /* overflow: scroll; */
 }
 
