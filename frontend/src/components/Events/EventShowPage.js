@@ -15,8 +15,8 @@ import "./EventShow.css";
 import "./EventShow.css";
 import CommentForm from "../Comments/CommentForm";
 import CommentIndex from "../Comments/CommentsIndex";
-import locationicon from '../../images/location-dot-solid.svg';
-import calendaricon from '../../images/calendar-regular.svg';
+import locationicon from "../../images/location-dot-solid.svg";
+import calendaricon from "../../images/calendar-regular.svg";
 import { useLoggedIn } from "../../util/ApiUtil";
 
 const capitalizeFirstLetter = (str) => {
@@ -32,7 +32,7 @@ const capitalizeFirstLetter = (str) => {
 const EventShowPage = () => {
   const dispatch = useDispatch();
   const params = useParams();
-  const [places, setPlaces] = useState({});
+  const [places, setPlaces] = useState([]);
   const currentEventId = params.eventId;
   const currentEvent = useSelector((state) => state.openStreet[0]);
   const mapRef = useRef(null);
@@ -67,32 +67,28 @@ const EventShowPage = () => {
         radius: "400",
         type: ["restaurant"],
       };
-      const service = new window.google.maps.places.PlacesService(map);
+
+      const service = new window.google.maps.places.PlacesService(
+        mapRef.current
+      );
       service.nearbySearch(request, callback);
     }
   }, [isLoaded, currentEvent]);
 
   function callback(results, status) {
     if (status === window.google.maps.places.PlacesServiceStatus.OK) {
-      // for (let i = 0; i < results.length; i++) {
-      //     setPlaces({places, ...results[i]}) ;
-      // }'
       setPlaces(results);
-
     }
   }
-  if (!isLoaded) {
-    return <div>loading</div>;
+
+  if (loadError) {
+    return <div>Error loading Google Maps API</div>;
   }
 
-  if (Object.keys(places).length === 0) {
-    return (
-      <>
-        <div id="map" style={{ display: "none" }}></div>
-        <div>loading!</div>
-      </>
-    );
+  if (!isLoaded || !currentEvent) {
+    return <div>Loading...</div>;
   }
+
   const listItems = places.map((place) => {
     const photos = place.photos;
     let photoUrl;
@@ -116,50 +112,53 @@ const EventShowPage = () => {
     );
   });
 
-  if (currentEvent) {
-    return (
-      <div className="event-show-page">
-        <h1>{capitalizeFirstLetter(currentEvent.location.mainStreet)}</h1>
-        <div className="event-body">
-          <div className="event-info">
-            <div className="eventday-subheading">
-              <img src={calendaricon} id="calendaricon"></img>
-              <h4>Street Closure Days </h4>
-            </div>
-            <EventCalendar />
-            <div className="eventlocation-subheading">
-              <img src={locationicon} id="locationicon"></img>
-              <h4>Open Street Location</h4>
-            </div>
-            <h5>{currentEvent.location.mainStreet}</h5>
-            <p>Between: {currentEvent.location.startStreet} & {currentEvent.location.endStreet}</p>
-            <div id="nearby-places">Nearby Restaurants</div>
-            <div className="all-places">
-              {listItems}
-              <div id="map" style={{ display: "none" }}></div>
-            </div>
+  return (
+    <div className="event-show-page">
+      <h1>{capitalizeFirstLetter(currentEvent.location.mainStreet)}</h1>
+      <div className="event-body">
+        <div className="event-info">
+          <div className="eventday-subheading">
+            <img src={calendaricon} alt="Calendar icon" id="calendaricon" />
+            <h4>Street Closure Days</h4>
           </div>
-          <div className="event-users">
-            <div className="attendees">
-              <h4>Who is going?</h4>
-              <AttendList />
-            </div>
-            <div className="comments">
-              <CommentIndex />
-              {loggedIn ? (
-                <CommentForm />
-              ) : (
-                <button className="comment-login" onClick={() => history.push("/login")}>
-                  Log in to Comment
-                </button>
-              )}
-              {/* <CommentIndex /> */}
-            </div>
+          <EventCalendar />
+          <div className="eventlocation-subheading">
+            <img src={locationicon} alt="Location icon" id="locationicon" />
+            <h4>Open Street Location</h4>
+          </div>
+          <h5>{currentEvent.location.mainStreet}</h5>
+          <p>
+            Between: {currentEvent.location.startStreet} &{" "}
+            {currentEvent.location.endStreet}
+          </p>
+          <div id="nearby-places">Nearby Restaurants</div>
+          <div className="all-places">
+            {listItems}
+            <div id="map" style={{ display: "none" }}></div>
+          </div>
+        </div>
+        <div className="event-users">
+          <div className="attendees">
+            <h4>Who is going?</h4>
+            <AttendList />
+          </div>
+          <div className="comments">
+            <CommentIndex />
+            {loggedIn ? (
+              <CommentForm />
+            ) : (
+              <button
+                className="comment-login"
+                onClick={() => history.push("/login")}
+              >
+                Log in to Comment
+              </button>
+            )}
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 };
 
 export default EventShowPage;
