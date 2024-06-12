@@ -25,7 +25,8 @@
   },
   "homepage": "https://github.com/treypisano/Street-Lite#readme",
   "dependencies": {
-    "@react-google-maps/api": "^2.18.1"
-  },
-  "devDependencies": {}
+    "@react-google-maps/api": "^2.18.1",
+    "dotenv": "^16.4.5",
+    "express-generator": "^4.16.1"
+  }
 }
